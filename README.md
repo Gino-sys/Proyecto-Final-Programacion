@@ -41,35 +41,37 @@ Este proyecto es una aplicación de simulación de torneos de copa del mundo, de
      Conecta el Arduino a la computadora y carga el código arduino/display_controller.ino en el dispositivo.
      Asegúrate de que el display y los botones estén correctamente conectados al Arduino y configurados según el código.
 
-**Ejecutar la aplicación:**
+## **Ejecutar la aplicación:**
 
 bash
 Copiar código
 python src/main.py
-**Crear un nuevo torneo:**
+## **Crear un nuevo torneo:**
 
 En la ventana inicial, ingresa el nombre del torneo y agrega hasta 8 equipos participantes.
-**Simular partidos:**
+## **Simular partidos:**
 
 La interfaz muestra los cruces en formato de eliminación directa.
 Al seleccionar un partido, se abre una nueva ventana donde el usuario puede iniciar el partido y utilizar los botones de Arduino para registrar los goles de cada equipo.
 Al finalizar el partido, los resultados se guardan automáticamente.
-**Ver estadísticas:**
+## **Ver estadísticas:**
 
 Al finalizar el torneo, puedes ver el podio de ganadores y los equipos con más goles anotados y recibidos.
 Usa la barra de búsqueda para encontrar un equipo específico y ver su historial de partidos.
 
-**Estructura del Proyecto**
+## **Estructura del Proyecto**
   src/: Contiene el código fuente del proyecto en Python.
   arduino/: Incluye el código de Arduino para el display y los botones.
   data/: Carpeta para archivos de persistencia en formato .json o .csv.
   README.md: Descripción del proyecto, instrucciones de uso e instalación.
 
-  **Contribuciones y Créditos**
+## **Contribuciones y Créditos**
 Este proyecto fue desarrollado por:
 
 **Gino Candiotto**
+
 **Facundo Medina**
+
 **Juan Ignacio Farah**
 
 
