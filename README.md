@@ -13,6 +13,7 @@ Este proyecto es una aplicación de simulación de torneos de copa del mundo, de
 - **Búsqueda de equipos**: El usuario puede buscar un equipo específico y visualizar su historial de partidos y resultados.
 
 ## Requisitos
+asdasd
 
 ### Software
 - **Python 3.x**
