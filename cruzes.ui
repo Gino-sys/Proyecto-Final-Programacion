@@ -217,6 +217,20 @@
       </property>
      </widget>
     </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="suiguiente_button">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>SIGUIENTE</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
