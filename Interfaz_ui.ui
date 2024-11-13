@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ventana1</class>
+ <widget class="QMainWindow" name="ventana1">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>563</width>
-    <height>401</height>
+    <width>577</width>
+    <height>341</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Ventana1</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -32,7 +32,7 @@
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>16</pointsize>
+      <pointsize>26</pointsize>
      </font>
     </property>
     <property name="text">
@@ -42,7 +42,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="torneo_button">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -69,7 +69,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>563</width>
+     <width>577</width>
      <height>21</height>
     </rect>
    </property>
@@ -77,5 +77,25 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>torneo_button</sender>
+   <signal>clicked()</signal>
+   <receiver>ventana1</receiver>
+   <slot>nuevo_torneo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>247</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>253</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>nuevo_torneo()</slot>
+ </slots>
 </ui>
