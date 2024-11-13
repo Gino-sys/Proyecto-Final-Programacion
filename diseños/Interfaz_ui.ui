@@ -45,7 +45,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagen del 1.png</pixmap>
+     <pixmap>image.png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -94,7 +94,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>772</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -104,22 +104,22 @@ QPushButton:pressed {
  <connections>
   <connection>
    <sender>torneo_button</sender>
-   <signal>clicked(bool)</signal>
+   <signal>clicked()</signal>
    <receiver>ventana1</receiver>
-   <slot>abrir()</slot>
+   <slot>nuevo_torneo()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>302</x>
-     <y>396</y>
+     <x>247</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
-     <x>404</x>
-     <y>582</y>
+     <x>253</x>
+     <y>354</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>abrir()</slot>
+  <slot>nuevo_torneo()</slot>
  </slots>
 </ui>

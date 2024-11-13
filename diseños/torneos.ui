@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ventana2</class>
- <widget class="QMainWindow" name="ventana2">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
-    <height>412</height>
+    <width>700</width>
+    <height>465</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>200</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Ventana2</string>
+   <string>Ventana3</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-50</x>
-      <y>-10</y>
-      <width>861</width>
-      <height>501</height>
+      <x>-380</x>
+      <y>0</y>
+      <width>1081</width>
+      <height>431</height>
      </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
     </property>
     <property name="minimumSize">
      <size>
@@ -35,30 +35,29 @@
       <height>200</height>
      </size>
     </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagenV2.png</pixmap>
+     <pixmap>imageV3.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>50</x>
       <y>260</y>
-      <width>501</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>370</y>
-      <width>171</width>
-      <height>51</height>
+      <width>231</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -67,6 +66,25 @@
       <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>TU_TORNEO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>270</y>
+      <width>281</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>18</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -85,7 +103,7 @@ QPushButton:pressed {
 </string>
     </property>
     <property name="text">
-     <string>CONTINUAR</string>
+     <string>AGREGAR EQUIPOS </string>
     </property>
    </widget>
   </widget>
@@ -94,7 +112,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
+     <width>700</width>
      <height>21</height>
     </rect>
    </property>
