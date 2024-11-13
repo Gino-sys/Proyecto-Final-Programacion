@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>9</y>
+      <x>10</x>
+      <y>0</y>
       <width>575</width>
       <height>403</height>
      </rect>
@@ -215,14 +215,48 @@
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>210</y>
+      <x>470</x>
+      <y>200</y>
       <width>47</width>
       <height>13</height>
      </rect>
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>320</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #28a745;  /* Color de fondo verde */
+    color: white;               /* Color del texto */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 5px;               /* Espacio interno */
+}
+QPushButton:hover {
+    background-color: #218838;  /* Color cuando el mouse pasa encima */
+}
+QPushButton:pressed {
+    background-color: #1e7e34;  /* Color cuando el botón es presionado */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>VER PODIO</string>
     </property>
    </widget>
   </widget>
