@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagenV5.png</pixmap>
+     <pixmap>diseños/imagenV5.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
