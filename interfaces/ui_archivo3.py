@@ -14,19 +14,23 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(576, 269)
+        MainWindow.resize(700, 465)
         MainWindow.setMinimumSize(QtCore.QSize(200, 200))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(20, 20, 481, 101))
+        self.label_2.setGeometry(QtCore.QRect(-380, 10, 1081, 431))
+        self.label_2.setMinimumSize(QtCore.QSize(200, 200))
         font = QtGui.QFont()
         font.setFamily("Cooper Black")
         font.setPointSize(26)
         self.label_2.setFont(font)
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("diseños/imageV3.png"))
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 140, 231, 61))
+        self.label.setGeometry(QtCore.QRect(50, 260, 231, 71))
         font = QtGui.QFont()
         font.setFamily("Constantia")
         font.setPointSize(16)
@@ -35,18 +39,29 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setText("")
         self.label.setObjectName("label")
-        self.agregar_button = QtWidgets.QPushButton(self.centralwidget)
-        self.agregar_button.setGeometry(QtCore.QRect(250, 140, 251, 61))
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(340, 270, 281, 51))
         font = QtGui.QFont()
-        font.setFamily("Constantia")
-        font.setPointSize(16)
-        font.setBold(True)
-        font.setWeight(75)
-        self.agregar_button.setFont(font)
-        self.agregar_button.setObjectName("agregar_button")
+        font.setFamily("Cooper Black")
+        font.setPointSize(18)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color: #28a745;  /* Color de fondo verde */\n"
+"    color: white;               /* Color del texto */\n"
+"    border-radius: 5px;         /* Bordes redondeados */\n"
+"    padding: 5px;               /* Espacio interno */\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #218838;  /* Color cuando el mouse pasa encima */\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #1e7e34;  /* Color cuando el botón es presionado */\n"
+"}\n"
+"")
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 576, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 700, 20))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -59,5 +74,4 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Ventana3"))
-        self.label_2.setText(_translate("MainWindow", "TORNEOS "))
-        self.agregar_button.setText(_translate("MainWindow", "AGREGAR EQUIPOS"))
+        self.pushButton.setText(_translate("MainWindow", "AGREGAR EQUIPOS "))
