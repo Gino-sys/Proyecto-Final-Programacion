@@ -134,6 +134,38 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>520</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #28a745;  /* Color de fondo verde */
+    color: white;               /* Color del texto */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 5px;               /* Espacio interno */
+}
+QPushButton:hover {
+    background-color: #218838;  /* Color cuando el mouse pasa encima */
+}
+QPushButton:pressed {
+    background-color: #1e7e34;  /* Color cuando el botón es presionado */
+}</string>
+    </property>
+    <property name="text">
+     <string>JUGAR</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
