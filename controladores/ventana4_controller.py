@@ -33,8 +33,9 @@ class ventana4(QMainWindow, Ui_MainWindow):
         self.pushButton.setEnabled(todos_completos)
 
     def siguiente(self):
-        
+    
+        nombres_equipos = [line_edit.text().strip() for line_edit in self.line_edits]   
         if self.ventana5 is None:
-            self.ventana5 = ventana5(self.texto_torneo, self)  # Pasa el texto a ventana5
+            self.ventana5 = ventana5(self.texto_torneo, nombres_equipos, self)  # Pasa el texto a ventana5
         self.ventana5.show()
         self.hide()  # Cierra la ventana actual

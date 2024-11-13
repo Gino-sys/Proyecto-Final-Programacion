@@ -133,5 +133,42 @@ QPushButton:pressed {
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Volver()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>400</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>527</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>siguiente()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>528</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>Volver()</slot>
+  <slot>siguiente()</slot>
+ </slots>
 </ui>

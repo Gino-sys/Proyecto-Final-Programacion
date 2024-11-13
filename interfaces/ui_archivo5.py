@@ -81,6 +81,8 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.pushButton_2.clicked['bool'].connect(MainWindow.Volver) # type: ignore
+        self.pushButton.clicked['bool'].connect(MainWindow.siguiente) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
