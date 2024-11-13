@@ -1,14 +1,14 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from interfaces.ui_archivo4 import Ui_MainWindow
-
+from controladores.ventana5_controller import ventana5
 
 
 class ventana4(QMainWindow, Ui_MainWindow):
-    def __init__(self):
+    def __init__(self, texto_torneo=""):
         super().__init__()
         self.setupUi(self)
-
-
+        
+        self.texto_torneo = texto_torneo  # Guarda el texto para pasarlo a ventana5
         # Suponiendo que los nombres de los QLineEdit en la interfaz son lineEdit1, lineEdit2, etc.
         self.line_edits = [
             self.lineEdit_1, self.lineEdit_2, self.lineEdit_3, self.lineEdit_4,
@@ -25,7 +25,7 @@ class ventana4(QMainWindow, Ui_MainWindow):
         # Conecta el botón para abrir la siguiente ventana y cerrar esta
         self.pushButton.clicked.connect(self.siguiente)
         
-        self.ventana_siguiente = None
+        self.ventana5 = None
 
     def verificar_campos(self):
         # Verifica si todos los QLineEdit tienen contenido
@@ -33,7 +33,8 @@ class ventana4(QMainWindow, Ui_MainWindow):
         self.pushButton.setEnabled(todos_completos)
 
     def siguiente(self):
-        if self.ventana_siguiente is None:
-            self.ventana_siguiente = Ventana5()  # Cambia `Ventana5` por el nombre de la siguiente ventana
-        self.ventana_siguiente.show()
+        
+        if self.ventana5 is None:
+            self.ventana5 = ventana5(self.texto_torneo, self)  # Pasa el texto a ventana5
+        self.ventana5.show()
         self.hide()  # Cierra la ventana actual

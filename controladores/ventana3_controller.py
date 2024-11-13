@@ -8,7 +8,8 @@ class ventana3(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         self.ventana4 = None
-        
+        self.texto_torneo = texto  # Guarda el texto para pasarlo a la siguiente ventana
+
         # Muestra el texto recibido al iniciar la ventana
         self.mostrar_texto(texto)
         
@@ -22,6 +23,6 @@ class ventana3(QMainWindow, Ui_MainWindow):
         
     def otra(self):
         if self.ventana4 is None:
-            self.ventana4 = ventana4()
+            self.ventana4 = ventana4(self.texto_torneo)
         self.ventana4.show()
         self.hide()

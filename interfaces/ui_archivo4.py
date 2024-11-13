@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.lineEdit_1 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_1.setGeometry(QtCore.QRect(140, 169, 201, 31))
-        self.lineEdit_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_1.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
         self.lineEdit_1.setObjectName("lineEdit_1")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(140, 209, 201, 31))
