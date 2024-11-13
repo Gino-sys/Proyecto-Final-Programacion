@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>ImagenV4.png</pixmap>
+     <pixmap>diseños/ImagenV4.png</pixmap>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
