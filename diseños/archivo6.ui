@@ -6,8 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
     <width>860</width>
     <height>661</height>
+=======
+    <width>414</width>
+    <height>296</height>
+>>>>>>> 69f046ac9cea3e5f537638937ed1713c0e5fd32d
    </rect>
   </property>
   <property name="windowTitle">
@@ -172,14 +177,20 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
+<<<<<<< HEAD
      <width>860</width>
      <height>20</height>
+=======
+     <width>414</width>
+     <height>21</height>
+>>>>>>> 69f046ac9cea3e5f537638937ed1713c0e5fd32d
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
+<<<<<<< HEAD
  <connections>
   <connection>
    <sender>pushButton</sender>
@@ -201,4 +212,7 @@ QPushButton:pressed {
  <slots>
   <slot>sig()</slot>
  </slots>
+=======
+ <connections/>
+>>>>>>> 69f046ac9cea3e5f537638937ed1713c0e5fd32d
 </ui>
