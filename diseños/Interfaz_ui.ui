@@ -94,7 +94,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>772</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -109,12 +109,12 @@ QPushButton:pressed {
    <slot>abrir()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>300</x>
-     <y>391</y>
+     <x>301</x>
+     <y>399</y>
     </hint>
     <hint type="destinationlabel">
-     <x>329</x>
-     <y>556</y>
+     <x>268</x>
+     <y>543</y>
     </hint>
    </hints>
   </connection>
