@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>860</width>
-    <height>661</height>
+    <width>414</width>
+    <height>296</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -149,17 +149,17 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color: #28a745;  /* Color de fondo verde */
-    color: white;               /* Color del texto */
-    border-radius: 5px;         /* Bordes redondeados */
-    padding: 5px;               /* Espacio interno */
-}
-QPushButton:hover {
-    background-color: #218838;  /* Color cuando el mouse pasa encima */
-}
-QPushButton:pressed {
-    background-color: #1e7e34;  /* Color cuando el botón es presionado */
+     <string notr="true">QPushButton {
+    background-color: #28a745;  /* Color de fondo verde */
+    color: white;               /* Color del texto */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 5px;               /* Espacio interno */
+}
+QPushButton:hover {
+    background-color: #218838;  /* Color cuando el mouse pasa encima */
+}
+QPushButton:pressed {
+    background-color: #1e7e34;  /* Color cuando el botón es presionado */
 }</string>
     </property>
     <property name="text">
@@ -172,8 +172,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>860</width>
-     <height>20</height>
+     <width>414</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
