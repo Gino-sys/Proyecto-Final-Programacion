@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Interfaz_uiUPmpNz.ui'
+## Form generated from reading UI file 'Interfaz_uiPRPnuL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -63,7 +63,7 @@ class Ui_MainWindow(object):
         ventana1.setStatusBar(self.statusbar)
 
         self.retranslateUi(ventana1)
-        self.torneo_button.clicked.connect(ventana1.nuevo_torneo)
+        self.torneo_button.clicked.connect(ventana1.abrir)
 
         QMetaObject.connectSlotsByName(ventana1)
     # setupUi
