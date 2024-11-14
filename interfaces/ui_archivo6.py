@@ -60,27 +60,16 @@ class Ui_MainWindow(object):
         font.setPointSize(18)
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("QPushButton {\n"
-"\n"
 "    background-color: #28a745;  /* Color de fondo verde */\n"
-"\n"
 "    color: white;               /* Color del texto */\n"
-"\n"
 "    border-radius: 5px;         /* Bordes redondeados */\n"
-"\n"
 "    padding: 5px;               /* Espacio interno */\n"
-"\n"
 "}\n"
-"\n"
 "QPushButton:hover {\n"
-"\n"
 "    background-color: #218838;  /* Color cuando el mouse pasa encima */\n"
-"\n"
 "}\n"
-"\n"
 "QPushButton:pressed {\n"
-"\n"
 "    background-color: #1e7e34;  /* Color cuando el botón es presionado */\n"
-"\n"
 "}")
         self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -93,6 +82,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.pushButton.clicked['bool'].connect(MainWindow.sig) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

@@ -8,6 +8,8 @@ class ventana6(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         
+        self.nombres_equipos = nombres_equipos
+
         # Asigna los nombres de los equipos a los labels en orden
         labels = [
             self.label_2, self.label_3, self.label_4, self.label_5,
@@ -16,9 +18,11 @@ class ventana6(QMainWindow, Ui_MainWindow):
         
         for i, nombre in enumerate(nombres_equipos):
             labels[i].setText(nombre)
-            
+        
+        self.ventana7 = None
+        
     def sig(self):
         if self.ventana7 is None:
-            self.ventana7 = ventana7()
+            self.ventana7 = ventana7(self.nombres_equipos)
         self.ventana7.show()
         self.hide()  # Cierra la ventana actual

@@ -33,196 +33,196 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>50</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>43</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_1</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>90</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>83</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_2</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>140</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>132</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_3</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>180</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>172</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_4</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>230</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>213</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_5</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>270</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>253</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_6</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>310</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>303</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_7</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>350</y>
-      <width>47</width>
-      <height>13</height>
+      <x>50</x>
+      <y>341</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Equipo_8</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>80</y>
-      <width>47</width>
-      <height>13</height>
+      <x>180</x>
+      <y>63</y>
+      <width>101</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_1</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>160</y>
-      <width>47</width>
-      <height>13</height>
+      <x>180</x>
+      <y>152</y>
+      <width>101</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_2</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>250</y>
-      <width>47</width>
-      <height>13</height>
+      <x>190</x>
+      <y>233</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_3</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>330</y>
-      <width>47</width>
-      <height>13</height>
+      <x>190</x>
+      <y>323</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_4</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>120</y>
-      <width>47</width>
-      <height>13</height>
+      <x>320</x>
+      <y>110</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_5</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>290</y>
-      <width>47</width>
-      <height>13</height>
+      <x>320</x>
+      <y>282</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_6</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>200</y>
-      <width>47</width>
-      <height>13</height>
+      <x>450</x>
+      <y>193</y>
+      <width>101</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Ganador_Final</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -266,12 +266,32 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>589</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>siguiente_pag()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>363</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>484</x>
+     <y>465</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>siguiente_pag()</slot>
+ </slots>
 </ui>
