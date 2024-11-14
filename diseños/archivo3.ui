@@ -45,7 +45,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../imageV3.png</pixmap>
+     <pixmap>imageV3.png</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -55,15 +55,15 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>250</y>
-      <width>261</width>
-      <height>81</height>
+      <y>230</y>
+      <width>281</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>22</pointsize>
+      <pointsize>28</pointsize>
       <weight>50</weight>
       <bold>false</bold>
      </font>
@@ -76,9 +76,9 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>270</y>
-      <width>281</width>
-      <height>51</height>
+      <y>250</y>
+      <width>301</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
