@@ -2,7 +2,7 @@ import sys
 from controladores.interfaz_controller import MainWindow # Importa el controlador
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtCore import Slot
+from PyQt5.QtCore import pyqtSlot
 
 
 
