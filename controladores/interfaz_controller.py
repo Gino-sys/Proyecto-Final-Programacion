@@ -7,6 +7,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.resize(800, 500)  # Tamaño inicial
+        self.setFixedSize(self.size())
 
     
         self.torneo_button.clicked.connect(self.abrir)

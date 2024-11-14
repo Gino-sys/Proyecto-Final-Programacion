@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Interfaz_uiPRPnuL.ui'
+## Form generated from reading UI file 'Interfaz_uiuQHRhD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,6 +18,11 @@ class Ui_MainWindow(object):
         if not ventana1.objectName():
             ventana1.setObjectName(u"ventana1")
         ventana1.resize(772, 539)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(ventana1.sizePolicy().hasHeightForWidth())
+        ventana1.setSizePolicy(sizePolicy)
         ventana1.setMinimumSize(QSize(200, 200))
         self.centralwidget = QWidget(ventana1)
         self.centralwidget.setObjectName(u"centralwidget")
