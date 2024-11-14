@@ -34,10 +34,25 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>169</y>
+      <y>170</y>
       <width>201</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #28a745;  /* Color de fondo verde */
+    color: white;               /* Color del texto */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 5px;               /* Espacio interno */
+}
+QPushButton:hover {
+    background-color: #218838;  /* Color cuando el mouse pasa encima */
+}
+QPushButton:pressed {
+    background-color: #1e7e34;  /* Color cuando el botón es presionado */
+}
+</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -154,7 +169,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>684</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

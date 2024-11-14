@@ -33,7 +33,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>250</x>
       <y>270</y>
       <width>191</width>
       <height>51</height>
@@ -68,8 +68,8 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>350</y>
-      <width>251</width>
+      <y>340</y>
+      <width>281</width>
       <height>61</height>
      </rect>
     </property>
@@ -101,22 +101,25 @@ QPushButton:pressed {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>0</x>
       <y>100</y>
-      <width>301</width>
+      <width>661</width>
       <height>91</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>DejaVu Sans Mono</family>
-      <pointsize>28</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>Cooper Black</family>
+      <pointsize>48</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>TU -TORNEO</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -126,7 +129,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

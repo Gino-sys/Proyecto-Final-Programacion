@@ -33,14 +33,14 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>90</y>
-      <width>47</width>
-      <height>13</height>
+      <x>150</x>
+      <y>80</y>
+      <width>121</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>NOMBRE_TORNEO</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -103,16 +103,16 @@
      <rect>
       <x>60</x>
       <y>350</y>
-      <width>171</width>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Constantia</family>
+      <family>Cooper Black</family>
       <pointsize>16</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -135,10 +135,10 @@ color: white;               /* Texto en blanco */
     </property>
     <property name="font">
      <font>
-      <family>Constantia</family>
+      <family>Cooper Black</family>
       <pointsize>14</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
