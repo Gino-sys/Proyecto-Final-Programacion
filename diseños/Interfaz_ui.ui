@@ -94,7 +94,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>772</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -104,22 +104,22 @@ QPushButton:pressed {
  <connections>
   <connection>
    <sender>torneo_button</sender>
-   <signal>clicked()</signal>
+   <signal>clicked(bool)</signal>
    <receiver>ventana1</receiver>
-   <slot>nuevo_torneo()</slot>
+   <slot>abrir()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>247</x>
-     <y>293</y>
+     <x>300</x>
+     <y>391</y>
     </hint>
     <hint type="destinationlabel">
-     <x>253</x>
-     <y>354</y>
+     <x>329</x>
+     <y>556</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>nuevo_torneo()</slot>
+  <slot>abrir()</slot>
  </slots>
 </ui>
