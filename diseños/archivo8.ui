@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Ventana8</class>
- <widget class="QMainWindow" name="Ventana8">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -157,7 +157,7 @@ color: white;               /* Texto en blanco */
      <x>0</x>
      <y>0</y>
      <width>661</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

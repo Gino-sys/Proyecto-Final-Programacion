@@ -1,12 +1,14 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from interfaces.ui_archivo7 import Ui_MainWindow
-
+from controladores.ventana8_controller import ventana8
 
 
 class ventana7(QMainWindow, Ui_MainWindow):
     def __init__(self, nombres_equipos):
         super().__init__()
         self.setupUi(self)
+        
+        self.ventana8 = None
         
         labels = [
             self.label_2, self.label_3, self.label_4, self.label_5,
@@ -16,3 +18,8 @@ class ventana7(QMainWindow, Ui_MainWindow):
         for i, nombre in enumerate(nombres_equipos):
             labels[i].setText(nombre)
         
+    def siguiente_pag(self):
+        if self.ventana8 is None:
+            self.ventana8 = ventana8()
+        self.ventana8.show()
+        self.hide()  # Cierra la ventana actual
