@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo3dHUWyH.ui'
+## Form generated from reading UI file 'archivo3QnatUA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -21,25 +21,25 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QSize(200, 200))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(-380, 0, 1081, 431))
-        self.label.setMinimumSize(QSize(200, 200))
+        self.labeljj = QLabel(self.centralwidget)
+        self.labeljj.setObjectName(u"labeljj")
+        self.labeljj.setGeometry(QRect(-380, 0, 1081, 431))
+        self.labeljj.setMinimumSize(QSize(200, 200))
         font = QFont()
         font.setFamily(u"Cooper Black")
         font.setPointSize(26)
-        self.label.setFont(font)
-        self.label.setPixmap(QPixmap(u"diseños/imageV3.png"))
-        self.label.setAlignment(Qt.AlignCenter)
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(50, 230, 281, 101))
+        self.labeljj.setFont(font)
+        self.labeljj.setPixmap(QPixmap(u"diseños/imageV3.png"))
+        self.labeljj.setAlignment(Qt.AlignCenter)
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(50, 230, 281, 101))
         font1 = QFont()
         font1.setFamily(u"Cooper Black")
         font1.setPointSize(28)
         font1.setBold(False)
         font1.setWeight(50)
-        self.label_2.setFont(font1)
+        self.label.setFont(font1)
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(340, 250, 301, 71))
@@ -77,8 +77,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Ventana3", None))
-        self.label.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"TU_TORNEO", None))
+        self.labeljj.setText("")
+        self.label.setText(QCoreApplication.translate("MainWindow", u"TU_TORNEO", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"AGREGAR EQUIPOS ", None))
     # retranslateUi
 
