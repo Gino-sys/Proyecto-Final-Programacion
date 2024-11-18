@@ -9,7 +9,7 @@ class Ventana2(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         # Conectar la señal de texto del QLineEdit a la función que habilita el botón
         self.lineEdit.textChanged.connect(self.habilitar_boton)
-        self.resize(800, 500)  # Tamaño inicial
+        self.resize(790, 460)  # Tamaño inicial
         self.setFixedSize(self.size())
         
         

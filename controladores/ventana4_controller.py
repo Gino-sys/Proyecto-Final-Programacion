@@ -7,6 +7,8 @@ class ventana4(QMainWindow, Ui_MainWindow):
     def __init__(self, texto_torneo=""):
         super().__init__()
         self.setupUi(self)
+        self.resize(685, 470)  # Tamaño inicial
+        self.setFixedSize(self.size())
         
         self.texto_torneo = texto_torneo  # Guarda el texto para pasarlo a ventana5
         # Suponiendo que los nombres de los QLineEdit en la interfaz son lineEdit1, lineEdit2, etc.

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo6aBqOsN.ui'
+## Form generated from reading UI file 'archivo6dcFgPO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -50,10 +50,10 @@ class Ui_MainWindow(object):
         self.label_9.setGeometry(QRect(90, 500, 47, 13))
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(630, 470, 131, 51))
+        self.pushButton.setGeometry(QRect(610, 460, 171, 61))
         font = QFont()
         font.setFamily(u"Cooper Black")
-        font.setPointSize(16)
+        font.setPointSize(20)
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet(u"QPushButton {\n"
 "    background-color: #28a745;  /* Color de fondo verde */\n"

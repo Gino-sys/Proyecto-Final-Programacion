@@ -137,16 +137,16 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>470</y>
-      <width>131</width>
-      <height>51</height>
+      <x>610</x>
+      <y>460</y>
+      <width>171</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>16</pointsize>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="styleSheet">
