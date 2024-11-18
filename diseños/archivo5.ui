@@ -33,9 +33,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>190</x>
       <y>270</y>
-      <width>191</width>
+      <width>281</width>
       <height>51</height>
      </rect>
     </property>
@@ -67,7 +67,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>340</y>
       <width>281</width>
       <height>61</height>
@@ -110,7 +110,7 @@ QPushButton:pressed {
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>48</pointsize>
+      <pointsize>54</pointsize>
       <weight>50</weight>
       <bold>false</bold>
      </font>
