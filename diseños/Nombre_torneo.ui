@@ -51,6 +51,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="placeholderText">
+     <string>Ingrese el nombre del torneo</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">

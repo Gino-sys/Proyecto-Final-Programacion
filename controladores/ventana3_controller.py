@@ -17,7 +17,7 @@ class ventana3(QMainWindow, Ui_MainWindow):
         
     def mostrar_texto(self, texto):
         # Actualiza un QLabel o QTextEdit para mostrar el texto
-        self.label.setText(texto)  # Asegúrate de que `label` sea el nombre del QLabel en tu UI
+        self.label.setText(texto)  # Asegúrate de que label sea el nombre del QLabel en tu UI
 
     def actualizar_texto(self, texto):
         # Método para actualizar el texto si la ventana ya está abierta

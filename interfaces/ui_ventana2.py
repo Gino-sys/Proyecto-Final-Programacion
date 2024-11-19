@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Nombre_torneooJebqj.ui'
+## Form generated from reading UI file 'Nombre_torneoRVhYVl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -72,6 +72,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, ventana2):
         ventana2.setWindowTitle(QCoreApplication.translate("ventana2", u"Ventana2", None))
         self.label.setText("")
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("ventana2", u"Ingrese el nombre del torneo", None))
         self.pushButton.setText(QCoreApplication.translate("ventana2", u"CONTINUAR", None))
     # retranslateUi
 
