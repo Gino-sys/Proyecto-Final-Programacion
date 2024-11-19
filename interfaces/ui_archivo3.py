@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo3QnatUA.ui'
+## Form generated from reading UI file 'archivo3jwnCzg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,19 +17,19 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(700, 458)
+        MainWindow.resize(700, 426)
         MainWindow.setMinimumSize(QSize(200, 200))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.labeljj = QLabel(self.centralwidget)
         self.labeljj.setObjectName(u"labeljj")
-        self.labeljj.setGeometry(QRect(-380, 0, 1081, 431))
+        self.labeljj.setGeometry(QRect(-190, -40, 1081, 471))
         self.labeljj.setMinimumSize(QSize(200, 200))
         font = QFont()
         font.setFamily(u"Cooper Black")
         font.setPointSize(26)
         self.labeljj.setFont(font)
-        self.labeljj.setPixmap(QPixmap(u"diseños/imageV3.png"))
+        self.labeljj.setPixmap(QPixmap(u"diseños/nueva imagen del 3.png"))
         self.labeljj.setAlignment(Qt.AlignCenter)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")

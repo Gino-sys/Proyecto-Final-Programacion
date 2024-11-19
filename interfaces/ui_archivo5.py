@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo5bsVHUa.ui'
+## Form generated from reading UI file 'archivo5VRgpHl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(0, -40, 591, 481))
-        self.label.setPixmap(QPixmap(u"diseños/imageV5.png"))
+        self.label.setPixmap(QPixmap(u"diseños/imagen del 5.png"))
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(210, 80, 221, 61))
@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Ventana5 ", None))
         self.label.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"TU TORNEO", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"CRUCES", None))

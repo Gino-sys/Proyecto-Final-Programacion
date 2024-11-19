@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imageV5.png</pixmap>
+     <pixmap>imagen del 5.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
