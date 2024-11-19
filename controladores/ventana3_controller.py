@@ -6,7 +6,7 @@ class ventana3(QMainWindow, Ui_MainWindow):
     def __init__(self, texto=""):
         super().__init__()
         self.setupUi(self)
-        self.resize(700, 370)  # Tamaño inicial
+        self.resize(700, 355)  # Tamaño inicial
         self.setFixedSize(self.size())
 
         self.ventana4 = None

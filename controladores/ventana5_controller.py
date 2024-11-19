@@ -8,6 +8,10 @@ class ventana5(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.label.setText(texto)  # Muestra el texto en el QLabel
+        self.resize(685, 460)  # Tamaño inicial
+        self.setFixedSize(self.size())
+
+
 
         self.ventana6 = None
         self.nombres_equipos = nombres_equipos

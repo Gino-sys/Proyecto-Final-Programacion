@@ -7,6 +7,8 @@ class ventana6(QMainWindow, Ui_MainWindow):
     def __init__(self, nombres_equipos):
         super().__init__()
         self.setupUi(self)
+        self.resize(870, 560)  # Tamaño inicial
+        self.setFixedSize(self.size())
         
         self.nombres_equipos = nombres_equipos
 

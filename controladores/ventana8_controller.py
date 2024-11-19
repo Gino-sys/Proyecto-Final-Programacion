@@ -7,3 +7,5 @@ class ventana8(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.resize(685, 460)  # Tamaño inicial
+        self.setFixedSize(self.size())
