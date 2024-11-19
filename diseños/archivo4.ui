@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>-10</x>
+      <y>20</y>
       <width>681</width>
       <height>471</height>
      </rect>
@@ -33,8 +33,8 @@
    <widget class="QLineEdit" name="lineEdit_1">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>160</y>
+      <x>130</x>
+      <y>190</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -64,8 +64,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>210</y>
+      <x>130</x>
+      <y>230</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -77,8 +77,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>249</y>
+      <x>130</x>
+      <y>270</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -90,8 +90,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>290</y>
+      <x>130</x>
+      <y>310</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -103,8 +103,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_5">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>160</y>
+      <x>480</x>
+      <y>180</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -116,8 +116,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_6">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>200</y>
+      <x>480</x>
+      <y>230</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -129,8 +129,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_7">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>250</y>
+      <x>480</x>
+      <y>270</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -142,8 +142,8 @@ QPushButton:pressed {
    <widget class="QLineEdit" name="lineEdit_8">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>290</y>
+      <x>480</x>
+      <y>310</y>
       <width>181</width>
       <height>31</height>
      </rect>
