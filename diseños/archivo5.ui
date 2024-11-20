@@ -6,62 +6,43 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>586</width>
-    <height>426</height>
+    <width>637</width>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Ventana5 </string>
+   <string>Ventana5</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>-40</y>
-      <width>591</width>
-      <height>481</height>
+      <x>-40</x>
+      <y>-80</y>
+      <width>991</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagen del 5.png</pixmap>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>80</y>
-      <width>221</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Cooper Black</family>
-      <pointsize>24</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>TU TORNEO</string>
+     <pixmap>sinerror.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>160</y>
-      <width>211</width>
+      <x>170</x>
+      <y>200</y>
+      <width>191</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>16</pointsize>
+      <pointsize>18</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -86,16 +67,16 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>220</y>
-      <width>211</width>
+      <x>120</x>
+      <y>280</y>
+      <width>281</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>16</pointsize>
+      <pointsize>18</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -117,14 +98,38 @@ QPushButton:pressed {
      <string>EDITAR EQUIPOS</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>100</y>
+      <width>571</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>48</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>TU -TORNEO</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>586</width>
-     <height>21</height>
+     <width>637</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -133,34 +138,34 @@ QPushButton:pressed {
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>siguiente()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>249</x>
-     <y>212</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>622</x>
-     <y>216</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_2</sender>
    <signal>clicked(bool)</signal>
    <receiver>MainWindow</receiver>
    <slot>Volver()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>267</x>
-     <y>278</y>
+     <x>293</x>
+     <y>400</y>
     </hint>
     <hint type="destinationlabel">
-     <x>263</x>
-     <y>450</y>
+     <x>251</x>
+     <y>527</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>siguiente()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>528</y>
     </hint>
    </hints>
   </connection>

@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         font.setFamily(u"Cooper Black")
         font.setPointSize(26)
         self.labeljj.setFont(font)
-        self.labeljj.setPixmap(QPixmap(u"diseños/nueva imagen del 3.png"))
+        self.labeljj.setPixmap(QPixmap(u"diseños/nueva_imagen_del_3.png"))
         self.labeljj.setAlignment(Qt.AlignCenter)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
