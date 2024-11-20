@@ -7,7 +7,7 @@ class ventana7(QMainWindow, Ui_MainWindow):
     def __init__(self, nombres_equipos, ventana_principal=None, texto=""):
         super().__init__()
         self.setupUi(self)
-        self.resize(610, 400)  # Tamaño inicial
+        self.resize(850, 650)  # Tamaño inicial
         self.setFixedSize(self.size())
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
         self.texto_torneo = texto  # Guarda el texto para pasarlo a ventana5

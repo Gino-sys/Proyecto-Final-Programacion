@@ -78,7 +78,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>190</y>
+      <y>180</y>
       <width>271</width>
       <height>51</height>
      </rect>
@@ -164,8 +164,8 @@ QPushButton:pressed {
    <slot>Volver()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>293</x>
-     <y>291</y>
+     <x>303</x>
+     <y>261</y>
     </hint>
     <hint type="destinationlabel">
      <x>251</x>
@@ -180,8 +180,8 @@ QPushButton:pressed {
    <slot>siguiente()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>357</x>
-     <y>221</y>
+     <x>377</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>404</x>
