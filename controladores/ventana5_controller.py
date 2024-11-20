@@ -8,7 +8,7 @@ class ventana5(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.label.setText(texto)  # Muestra el texto en el QLabel
-        self.resize(555, 400)  # Tamaño inicial
+        self.resize(650, 385)  # Tamaño inicial
         self.setFixedSize(self.size())
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
-    <height>387</height>
+    <width>816</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -137,10 +137,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>560</x>
       <y>460</y>
-      <width>171</width>
-      <height>61</height>
+      <width>221</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
@@ -165,7 +165,17 @@ QPushButton:pressed {
 </string>
     </property>
     <property name="text">
-     <string>JUGAR </string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>Imgbot7.png</normaloff>Imgbot7.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>400</width>
+      <height>100</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -174,7 +184,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>407</width>
+     <width>816</width>
      <height>21</height>
     </rect>
    </property>
@@ -194,8 +204,8 @@ QPushButton:pressed {
      <y>510</y>
     </hint>
     <hint type="destinationlabel">
-     <x>662</x>
-     <y>587</y>
+     <x>406</x>
+     <y>386</y>
     </hint>
    </hints>
   </connection>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo5KjWmRy.ui'
+## Form generated from reading UI file 'archivo5zVtPTu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -22,11 +22,11 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(-10, -110, 991, 581))
-        self.label_2.setPixmap(QPixmap(u"diseños/sinerror.png"))
+        self.label_2.setGeometry(QRect(-10, -120, 991, 581))
+        self.label_2.setPixmap(QPixmap(u"diseños/imgventana5.png"))
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(220, 150, 171, 51))
+        self.pushButton.setGeometry(QRect(240, 120, 181, 51))
         font = QFont()
         font.setFamily(u"Cooper Black")
         font.setPointSize(18)
@@ -44,9 +44,13 @@ class Ui_MainWindow(object):
 "    background-color: #1e7e34;  /* Color cuando el bot\u00f3n es presionado */\n"
 "}\n"
 "")
+        icon = QIcon()
+        icon.addFile(u"diseños/imgbot5.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QSize(400, 50))
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(190, 210, 231, 61))
+        self.pushButton_2.setGeometry(QRect(200, 190, 271, 51))
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet(u"QPushButton {\n"
 "    background-color: #28a745;  /* Color de fondo verde */\n"
@@ -61,12 +65,16 @@ class Ui_MainWindow(object):
 "    background-color: #1e7e34;  /* Color cuando el bot\u00f3n es presionado */\n"
 "}\n"
 "")
+        icon1 = QIcon()
+        icon1.addFile(u"diseños/imagebot6.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_2.setIcon(icon1)
+        self.pushButton_2.setIconSize(QSize(300, 73))
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(120, 50, 371, 61))
+        self.label.setGeometry(QRect(170, 50, 371, 61))
         font1 = QFont()
-        font1.setFamily(u"Sans Serif")
-        font1.setPointSize(24)
+        font1.setFamily(u"Cooper Black")
+        font1.setPointSize(36)
         font1.setBold(False)
         font1.setWeight(50)
         self.label.setFont(font1)
@@ -90,8 +98,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Ventana5", None))
         self.label_2.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"CRUCES", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"EDITAR EQUIPOS", None))
+        self.pushButton.setText("")
+        self.pushButton_2.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"TU -TORNEO", None))
     # retranslateUi
 

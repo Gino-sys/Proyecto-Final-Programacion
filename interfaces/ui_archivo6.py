@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo6dcFgPO.ui'
+## Form generated from reading UI file 'archivo6VKWzEV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(834, 579)
+        MainWindow.resize(816, 606)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.label = QLabel(self.centralwidget)
@@ -50,7 +50,7 @@ class Ui_MainWindow(object):
         self.label_9.setGeometry(QRect(90, 500, 47, 13))
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(610, 460, 171, 61))
+        self.pushButton.setGeometry(QRect(560, 460, 221, 71))
         font = QFont()
         font.setFamily(u"Cooper Black")
         font.setPointSize(20)
@@ -68,10 +68,14 @@ class Ui_MainWindow(object):
 "    background-color: #1e7e34;  /* Color cuando el bot\u00f3n es presionado */\n"
 "}\n"
 "")
+        icon = QIcon()
+        icon.addFile(u"diseños/Imgbot7.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QSize(400, 100))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 834, 21))
+        self.menubar.setGeometry(QRect(0, 0, 816, 21))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -94,6 +98,6 @@ class Ui_MainWindow(object):
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"JUGAR ", None))
+        self.pushButton.setText("")
     # retranslateUi
 
