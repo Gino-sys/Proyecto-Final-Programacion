@@ -4,12 +4,13 @@ from controladores.ventana6_controller import ventana6
 
 
 class ventana5(QMainWindow, Ui_MainWindow):
-    def __init__(self, texto="", nombres_equipos=None, ventana_anterior=None):
+    def __init__(self, texto="", nombres_equipos=None, ventana_anterior=None, ventana_principal=None):
         super().__init__()
         self.setupUi(self)
         self.label.setText(texto)  # Muestra el texto en el QLabel
         self.resize(555, 400)  # Tamaño inicial
         self.setFixedSize(self.size())
+        self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
 
 
 
@@ -27,6 +28,6 @@ class ventana5(QMainWindow, Ui_MainWindow):
         
     def siguiente(self):
         if self.ventana6 is None:
-            self.ventana6 = ventana6(self.nombres_equipos)  # Pasa el texto a ventana6
+            self.ventana6 = ventana6(self.nombres_equipos, self.ventana1)  # Pasa el texto a ventana6
         self.ventana6.show()
         self.hide()  # Cierra la ventana actual

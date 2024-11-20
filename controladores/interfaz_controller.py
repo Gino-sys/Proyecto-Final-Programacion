@@ -19,7 +19,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def abrir(self):
         if self.ventana2 is None:
-            self.ventana2 = Ventana2()
+            self.ventana2 = Ventana2(self)
         self.ventana2.show()
         self.hide()
 
