@@ -33,10 +33,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>120</y>
+      <x>200</x>
+      <y>190</y>
       <width>181</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -65,7 +65,7 @@ QPushButton:pressed {
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>imgbot5.png</normaloff>imgbot5.png</iconset>
+      <normaloff>crucesimg.png</normaloff>crucesimg.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -78,7 +78,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>180</y>
+      <y>240</y>
       <width>271</width>
       <height>51</height>
      </rect>
@@ -121,9 +121,9 @@ QPushButton:pressed {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>50</y>
-      <width>371</width>
+      <x>0</x>
+      <y>100</y>
+      <width>681</width>
       <height>61</height>
      </rect>
     </property>

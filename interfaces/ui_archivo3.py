@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo3xqpODc.ui'
+## Form generated from reading UI file 'archivo3mGMzkK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,32 +17,33 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(701, 426)
+        MainWindow.resize(701, 521)
         MainWindow.setMinimumSize(QSize(200, 200))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.labeljj = QLabel(self.centralwidget)
         self.labeljj.setObjectName(u"labeljj")
-        self.labeljj.setGeometry(QRect(-190, -50, 1081, 471))
+        self.labeljj.setGeometry(QRect(-190, -50, 1081, 591))
         self.labeljj.setMinimumSize(QSize(200, 200))
         font = QFont()
         font.setFamily(u"Cooper Black")
         font.setPointSize(26)
         self.labeljj.setFont(font)
-        self.labeljj.setPixmap(QPixmap(u"diseños/nueva_imagen_del_3.png"))
+        self.labeljj.setPixmap(QPixmap(u"diseños/IMAGEN3.png"))
         self.labeljj.setAlignment(Qt.AlignCenter)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(10, 240, 321, 91))
+        self.label.setGeometry(QRect(0, 260, 701, 91))
         font1 = QFont()
         font1.setFamily(u"Cooper Black")
         font1.setPointSize(36)
         font1.setBold(False)
         font1.setWeight(50)
         self.label.setFont(font1)
+        self.label.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(330, 260, 271, 61))
+        self.pushButton.setGeometry(QRect(210, 380, 271, 61))
         font2 = QFont()
         font2.setFamily(u"Cooper Black")
         font2.setPointSize(18)

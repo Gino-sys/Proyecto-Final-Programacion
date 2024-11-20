@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo5zVtPTu.ui'
+## Form generated from reading UI file 'archivo5MsfFiO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.label_2.setPixmap(QPixmap(u"diseños/imgventana5.png"))
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(240, 120, 181, 51))
+        self.pushButton.setGeometry(QRect(200, 190, 181, 41))
         font = QFont()
         font.setFamily(u"Cooper Black")
         font.setPointSize(18)
@@ -45,12 +45,12 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         icon = QIcon()
-        icon.addFile(u"diseños/imgbot5.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"diseños/crucesimg.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton.setIcon(icon)
         self.pushButton.setIconSize(QSize(400, 50))
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(200, 190, 271, 51))
+        self.pushButton_2.setGeometry(QRect(200, 240, 271, 51))
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet(u"QPushButton {\n"
 "    background-color: #28a745;  /* Color de fondo verde */\n"
@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setIconSize(QSize(300, 73))
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(170, 50, 371, 61))
+        self.label.setGeometry(QRect(0, 100, 681, 61))
         font1 = QFont()
         font1.setFamily(u"Cooper Black")
         font1.setPointSize(36)
