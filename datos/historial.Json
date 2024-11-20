@@ -1,0 +1,24 @@
+[
+    {
+        "equipo": "Equipo A",
+        "partido": "Equipo A vs Equipo B",
+        "resultado": "2-1",
+        "fecha": "2024-11-18",
+        "estadio": "Estadio Central"
+    },
+    {
+        "equipo" : "Equipo A",
+        "partido":"Equipo A vs Equipo B",
+        "resultado": "4-3"
+
+        
+            
+    },
+    {
+        "equipo": "Equipo B",
+        "partido": "Equipo A vs Equipo B",
+        "resultado": "1-2",
+        "fecha": "2024-11-18",
+        "estadio": "Estadio Central"
+    }
+]
