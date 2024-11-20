@@ -13,7 +13,9 @@ class ventana9(QMainWindow, Ui_MainWindow):
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a ventana4
         # Conecta el botón `pushButton_2` para volver a `ventana4`
         self.pushButton_2.clicked.connect(self.regresar)
-
+    def buscar(self):
+        return
+    
     def regresar(self):
         # Muestra ventana4 y cierra ventana5
         if self.ventana_anterior is not None:
