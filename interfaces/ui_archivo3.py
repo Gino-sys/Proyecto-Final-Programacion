@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo3TlJPPL.ui'
+## Form generated from reading UI file 'archivo3xqpODc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,13 +17,13 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(700, 426)
+        MainWindow.resize(701, 426)
         MainWindow.setMinimumSize(QSize(200, 200))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.labeljj = QLabel(self.centralwidget)
         self.labeljj.setObjectName(u"labeljj")
-        self.labeljj.setGeometry(QRect(-190, -40, 1081, 471))
+        self.labeljj.setGeometry(QRect(-190, -50, 1081, 471))
         self.labeljj.setMinimumSize(QSize(200, 200))
         font = QFont()
         font.setFamily(u"Cooper Black")
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         self.labeljj.setAlignment(Qt.AlignCenter)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(10, 240, 311, 91))
+        self.label.setGeometry(QRect(10, 240, 321, 91))
         font1 = QFont()
         font1.setFamily(u"Cooper Black")
         font1.setPointSize(36)
@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.label.setFont(font1)
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(340, 250, 301, 71))
+        self.pushButton.setGeometry(QRect(330, 260, 271, 61))
         font2 = QFont()
         font2.setFamily(u"Cooper Black")
         font2.setPointSize(18)
@@ -60,10 +60,14 @@ class Ui_MainWindow(object):
 "    background-color: #1e7e34;  /* Color cuando el bot\u00f3n es presionado */\n"
 "}\n"
 "")
+        icon = QIcon()
+        icon.addFile(u"diseños/imgbot3.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QSize(700, 270))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 700, 21))
+        self.menubar.setGeometry(QRect(0, 0, 701, 21))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -79,6 +83,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Ventana3", None))
         self.labeljj.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"TU_TORNEO", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"AGREGAR EQUIPOS ", None))
+        self.pushButton.setText("")
     # retranslateUi
 

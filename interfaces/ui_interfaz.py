@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'Interfaz_uiuQHRhD.ui'
+## Form generated from reading UI file 'Interfaz_uilfMICD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -24,6 +24,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(ventana1.sizePolicy().hasHeightForWidth())
         ventana1.setSizePolicy(sizePolicy)
         ventana1.setMinimumSize(QSize(200, 200))
+        ventana1.setTabShape(QTabWidget.Rounded)
         self.centralwidget = QWidget(ventana1)
         self.centralwidget.setObjectName(u"centralwidget")
         self.label = QLabel(self.centralwidget)
@@ -38,7 +39,7 @@ class Ui_MainWindow(object):
         self.label.setAlignment(Qt.AlignCenter)
         self.torneo_button = QPushButton(self.centralwidget)
         self.torneo_button.setObjectName(u"torneo_button")
-        self.torneo_button.setGeometry(QRect(90, 350, 261, 51))
+        self.torneo_button.setGeometry(QRect(100, 340, 261, 61))
         font1 = QFont()
         font1.setFamily(u"Cooper Black")
         font1.setPointSize(16)
@@ -58,6 +59,10 @@ class Ui_MainWindow(object):
 "    background-color: #1e7e34;  /* Color cuando el bot\u00f3n es presionado */\n"
 "}\n"
 "")
+        icon = QIcon()
+        icon.addFile(u"diseños/imgboton1.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.torneo_button.setIcon(icon)
+        self.torneo_button.setIconSize(QSize(470, 100))
         ventana1.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(ventana1)
         self.menubar.setObjectName(u"menubar")
@@ -76,6 +81,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, ventana1):
         ventana1.setWindowTitle(QCoreApplication.translate("ventana1", u"Ventana1", None))
         self.label.setText("")
-        self.torneo_button.setText(QCoreApplication.translate("ventana1", u"NUEVO TORNEO", None))
+        self.torneo_button.setText("")
     # retranslateUi
 
