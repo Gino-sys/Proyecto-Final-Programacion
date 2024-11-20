@@ -24,10 +24,18 @@ class ventana5(QMainWindow, Ui_MainWindow):
         # Muestra ventana4 y cierra ventana5
         if self.ventana_anterior is not None:
             self.ventana_anterior.show()
-        self.hide()
+        self.close()
         
     def siguiente(self):
-        if self.ventana6 is None:
-            self.ventana6 = ventana6(self.nombres_equipos, self.ventana1)  # Pasa el texto a ventana6
+        # Obtén los nombres actualizados de los equipos de ventana 4
+        nombres_equipos_actualizados = [line_edit.text() for line_edit in self.ventana_anterior.line_edits]
+
+        # Si ventana6 ya existe, actualiza los equipos
+        if self.ventana6 is not None:
+            self.ventana6.actualizar_equipos(nombres_equipos_actualizados)
+        else:
+            # Si ventana6 no existe, créala con los datos actuales
+            self.ventana6 = ventana6(nombres_equipos_actualizados, self.ventana1)
+    
         self.ventana6.show()
         self.hide()  # Cierra la ventana actual

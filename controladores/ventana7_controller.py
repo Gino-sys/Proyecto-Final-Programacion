@@ -26,3 +26,4 @@ class ventana7(QMainWindow, Ui_MainWindow):
             self.ventana8 = ventana8(self.ventana1)
         self.ventana8.show()
         self.hide()  # Cierra la ventana actual
+        

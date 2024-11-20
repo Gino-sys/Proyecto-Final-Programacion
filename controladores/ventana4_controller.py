@@ -37,8 +37,10 @@ class ventana4(QMainWindow, Ui_MainWindow):
 
     def siguiente(self):
     
-        nombres_equipos = [line_edit.text().strip() for line_edit in self.line_edits]   
+        nombres_equipos = [line_edit.text() for line_edit in self.line_edits]
+        
         if self.ventana5 is None:
-            self.ventana5 = ventana5(self.texto_torneo, nombres_equipos, self, self.ventana1)  # Pasa el texto a ventana5
+            self.ventana5 = ventana5(self.texto_torneo, nombres_equipos, self, self.ventana1)
         self.ventana5.show()
         self.hide()  # Cierra la ventana actual
+        

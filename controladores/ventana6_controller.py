@@ -29,3 +29,15 @@ class ventana6(QMainWindow, Ui_MainWindow):
             self.ventana7 = ventana7(self.nombres_equipos, self.ventana1)
         self.ventana7.show()
         self.hide()  # Cierra la ventana actual
+
+    def actualizar_equipos(self, nombres_equipos):
+        self.nombres_equipos = nombres_equipos  # Actualiza los nombres internamente
+        labels = [
+            self.label_2, self.label_3, self.label_4, self.label_5,
+            self.label_6, self.label_7, self.label_8, self.label_9
+        ]
+        for i, nombre in enumerate(self.nombres_equipos):
+            labels[i].setText(nombre)
+
+
+    
