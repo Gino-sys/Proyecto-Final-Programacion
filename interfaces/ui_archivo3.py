@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo3jwnCzg.ui'
+## Form generated from reading UI file 'archivo3TlJPPL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -33,10 +33,10 @@ class Ui_MainWindow(object):
         self.labeljj.setAlignment(Qt.AlignCenter)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(50, 230, 281, 101))
+        self.label.setGeometry(QRect(10, 240, 311, 91))
         font1 = QFont()
         font1.setFamily(u"Cooper Black")
-        font1.setPointSize(28)
+        font1.setPointSize(36)
         font1.setBold(False)
         font1.setWeight(50)
         self.label.setFont(font1)

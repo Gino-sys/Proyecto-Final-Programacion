@@ -69,7 +69,7 @@ QPushButton:pressed {
      <rect>
       <x>190</x>
       <y>210</y>
-      <width>221</width>
+      <width>231</width>
       <height>61</height>
      </rect>
     </property>
@@ -129,7 +129,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>663</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
