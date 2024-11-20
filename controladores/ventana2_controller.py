@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_ventana2 import Ui_MainWindow
 from controladores.ventana3_controller import ventana3  # Cambia 'archivo3' si usaste un nombre distinto
 
@@ -20,6 +21,21 @@ class Ventana2(QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.ir_a_siguiente_pestana)
         
         self.ventana3 = None
+        self.animar_boton()
+    
+    def animar_boton(self):
+        # Crear una animación para el botón torneo_button
+        self.animation = QPropertyAnimation(self.pushButton, b"geometry")
+        self.animation.setDuration(800)  # Duración total del rebote
+        self.animation.setStartValue(self.pushButton.geometry())  # Posición inicial
+        self.animation.setEndValue(self.pushButton.geometry().adjusted(0, 6, 0, 6))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation.setLoopCount(-1)
+        self.animation.start()    
         
 
     def habilitar_boton(self):
