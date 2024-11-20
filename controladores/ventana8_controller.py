@@ -13,7 +13,7 @@ class ventana8(QMainWindow, Ui_MainWindow):
         
         
         self.ventana9 = None
-        self.ventana_principal = ventana_principal
+        self.ventana1 = ventana_principal
 
 
         self.pushButton_2.clicked.connect(self.principio)
@@ -24,8 +24,8 @@ class ventana8(QMainWindow, Ui_MainWindow):
         self.hide()     
 
     def principio (self):
-        if self.ventana_principal is not None:
-            self.ventana_principal.show()
+        if self.ventana1 is not None:
+            self.ventana1.show()
         self.hide()
 
 
