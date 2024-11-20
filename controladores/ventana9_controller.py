@@ -43,7 +43,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
         if resultados:
             for partido in resultados:
                 item = QListWidgetItem(
-                    f"{partido['partido']} - Resultado: {partido['resultado']} - Fecha: {partido['fecha']} - Estadio: {partido['estadio']}"
+                    f"{partido['partido']} - Resultado: {partido['resultado']}"
                 )
                 self.listWidget.addItem(item)
         else:
