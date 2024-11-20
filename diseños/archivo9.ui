@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-8</x>
-      <y>-31</y>
+      <x>-10</x>
+      <y>-40</y>
       <width>731</width>
       <height>461</height>
      </rect>
@@ -68,8 +68,27 @@
       <x>300</x>
       <y>90</y>
       <width>291</width>
-      <height>221</height>
+      <height>181</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>290</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>VOLVER</string>
     </property>
    </widget>
   </widget>
@@ -86,5 +105,25 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>regresar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>398</x>
+     <y>333</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>419</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>regresar()</slot>
+ </slots>
 </ui>
