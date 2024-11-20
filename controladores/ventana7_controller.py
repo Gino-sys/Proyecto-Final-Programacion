@@ -4,12 +4,13 @@ from controladores.ventana8_controller import ventana8
 
 
 class ventana7(QMainWindow, Ui_MainWindow):
-    def __init__(self, nombres_equipos, ventana_principal=None):
+    def __init__(self, nombres_equipos, ventana_principal=None, texto=""):
         super().__init__()
         self.setupUi(self)
         self.resize(610, 400)  # Tamaño inicial
         self.setFixedSize(self.size())
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
+        self.texto_torneo = texto  # Guarda el texto para pasarlo a ventana5
         
         self.ventana8 = None
         
@@ -23,7 +24,7 @@ class ventana7(QMainWindow, Ui_MainWindow):
         
     def siguiente_pag(self):
         if self.ventana8 is None:
-            self.ventana8 = ventana8(self.ventana1)
+            self.ventana8 = ventana8(self.ventana1, self.texto_torneo)
         self.ventana8.show()
         self.hide()  # Cierra la ventana actual
         

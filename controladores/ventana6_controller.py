@@ -4,12 +4,13 @@ from controladores.ventana7_controller import ventana7
 
 
 class ventana6(QMainWindow, Ui_MainWindow):
-    def __init__(self, nombres_equipos, ventana_principal=None):
+    def __init__(self, nombres_equipos, ventana_principal=None, texto=""):
         super().__init__()
         self.setupUi(self)
         self.resize(870, 560)  # Tamaño inicial
         self.setFixedSize(self.size())
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
+        self.texto_torneo = texto  # Guarda el texto para pasarlo a ventana5
         
         self.nombres_equipos = nombres_equipos
 
@@ -26,7 +27,7 @@ class ventana6(QMainWindow, Ui_MainWindow):
         
     def sig(self):
         if self.ventana7 is None:
-            self.ventana7 = ventana7(self.nombres_equipos, self.ventana1)
+            self.ventana7 = ventana7(self.nombres_equipos, self.ventana1, self.texto_torneo)
         self.ventana7.show()
         self.hide()  # Cierra la ventana actual
 

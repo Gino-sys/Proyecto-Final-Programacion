@@ -11,6 +11,7 @@ class ventana5(QMainWindow, Ui_MainWindow):
         self.resize(555, 400)  # Tamaño inicial
         self.setFixedSize(self.size())
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
+        self.texto_torneo = texto  # Guarda el texto para pasarlo a ventana5
 
 
 
@@ -35,7 +36,7 @@ class ventana5(QMainWindow, Ui_MainWindow):
             self.ventana6.actualizar_equipos(nombres_equipos_actualizados)
         else:
             # Si ventana6 no existe, créala con los datos actuales
-            self.ventana6 = ventana6(nombres_equipos_actualizados, self.ventana1)
+            self.ventana6 = ventana6(nombres_equipos_actualizados, self.ventana1, self.texto_torneo)
     
         self.ventana6.show()
         self.hide()  # Cierra la ventana actual
