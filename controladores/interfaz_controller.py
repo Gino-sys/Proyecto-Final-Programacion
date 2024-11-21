@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox, QWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve, Qt
+from PyQt5.QtGui import QGuiApplication
 from interfaces.ui_interfaz import Ui_MainWindow
 from controladores.ventana2_controller import Ventana2
 
@@ -9,7 +10,7 @@ class VentanaAyuda(QDialog):
         super().__init__()
 
         self.setWindowTitle("Instrucciones")
-        self.setGeometry(400, 200, 400, 300)  # Tamaño inicial de la ventana
+        self.setFixedSize(400, 300)  # Tamaño fijo de la ventana
         layout = QVBoxLayout()
 
         instrucciones = """Bienvenido a la aplicación de gestión de torneos.
@@ -20,11 +21,12 @@ class VentanaAyuda(QDialog):
 
         Después de jugar el torneo, podrá:
         - Ver la tabla de posiciones.
-        - Filtrar por equipo y asi acceder a sus resultados
+        - Filtrar por equipo y acceder a sus resultados.
 
         ¡Disfrute del torneo y que gane el mejor equipo!"""
 
         label_instrucciones = QLabel(instrucciones)
+        label_instrucciones.setWordWrap(True)  # Permite que el texto se ajuste a varias líneas
         layout.addWidget(label_instrucciones)
 
         # Botón de cerrar
@@ -39,14 +41,14 @@ class VentanaAyuda(QDialog):
 
     def centrar_ventana(self):
         # Obtener el tamaño de la pantalla
-        screen_geometry = QApplication.desktop().availableGeometry()
+        pantalla = QGuiApplication.primaryScreen().geometry()
 
         # Obtener el tamaño de la ventana
         size = self.geometry()
 
         # Calcular las coordenadas para centrar la ventana
-        x = (screen_geometry.width() - size.width()) // 2
-        y = (screen_geometry.height() - size.height()) // 2
+        x = (pantalla.width() - size.width()) // 2
+        y = (pantalla.height() - size.height()) // 2
 
         # Mover la ventana al centro de la pantalla
         self.move(x, y)
