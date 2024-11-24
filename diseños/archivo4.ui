@@ -34,9 +34,9 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>190</y>
+      <y>180</y>
       <width>201</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -155,10 +155,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>220</x>
       <y>380</y>
-      <width>181</width>
-      <height>41</height>
+      <width>261</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -183,7 +183,17 @@ QPushButton:pressed {
 </string>
     </property>
     <property name="text">
-     <string>CONTINUAR</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imgbot4.png</normaloff>imgbot4.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>700</width>
+      <height>120</height>
+     </size>
     </property>
    </widget>
   </widget>

@@ -98,7 +98,7 @@
      <x>0</x>
      <y>0</y>
      <width>598</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -122,8 +122,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>buscar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>470</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>482</x>
+     <y>393</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>regresar()</slot>
+  <slot>buscar()</slot>
  </slots>
 </ui>

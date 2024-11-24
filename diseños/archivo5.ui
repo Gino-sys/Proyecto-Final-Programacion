@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>444</height>
+    <width>663</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,25 +17,69 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>-40</x>
-      <y>-80</y>
+      <x>-10</x>
+      <y>-120</y>
       <width>991</width>
-      <height>591</height>
+      <height>581</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>sinerror.png</pixmap>
+     <pixmap>imgventana5.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>200</y>
-      <width>191</width>
+      <x>200</x>
+      <y>190</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #28a745;  /* Color de fondo verde */
+    color: white;               /* Color del texto */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 5px;               /* Espacio interno */
+}
+QPushButton:hover {
+    background-color: #218838;  /* Color cuando el mouse pasa encima */
+}
+QPushButton:pressed {
+    background-color: #1e7e34;  /* Color cuando el botón es presionado */
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>crucesimg.png</normaloff>crucesimg.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>400</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>240</y>
+      <width>271</width>
       <height>51</height>
      </rect>
     </property>
@@ -61,56 +105,32 @@ QPushButton:pressed {
 </string>
     </property>
     <property name="text">
-     <string>CRUCES</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imagebot6.png</normaloff>imagebot6.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>300</width>
+      <height>73</height>
+     </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>280</y>
-      <width>281</width>
+      <x>0</x>
+      <y>100</y>
+      <width>681</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Cooper Black</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color: #28a745;  /* Color de fondo verde */
-    color: white;               /* Color del texto */
-    border-radius: 5px;         /* Bordes redondeados */
-    padding: 5px;               /* Espacio interno */
-}
-QPushButton:hover {
-    background-color: #218838;  /* Color cuando el mouse pasa encima */
-}
-QPushButton:pressed {
-    background-color: #1e7e34;  /* Color cuando el botón es presionado */
-}
-</string>
-    </property>
-    <property name="text">
-     <string>EDITAR EQUIPOS</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>100</y>
-      <width>571</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Cooper Black</family>
-      <pointsize>48</pointsize>
+      <pointsize>36</pointsize>
       <weight>50</weight>
       <bold>false</bold>
      </font>
@@ -128,8 +148,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>637</width>
-     <height>20</height>
+     <width>663</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -144,8 +164,8 @@ QPushButton:pressed {
    <slot>Volver()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>293</x>
-     <y>400</y>
+     <x>303</x>
+     <y>261</y>
     </hint>
     <hint type="destinationlabel">
      <x>251</x>
@@ -160,8 +180,8 @@ QPushButton:pressed {
    <slot>siguiente()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>357</x>
-     <y>308</y>
+     <x>377</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>404</x>

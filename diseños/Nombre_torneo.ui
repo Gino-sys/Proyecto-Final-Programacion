@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
-    <height>489</height>
+    <width>711</width>
+    <height>486</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-50</x>
+      <x>-60</x>
       <y>0</y>
       <width>861</width>
       <height>501</height>
@@ -45,9 +45,9 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>260</y>
-      <width>501</width>
+      <width>451</width>
       <height>41</height>
      </rect>
     </property>
@@ -59,36 +59,23 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>360</y>
-      <width>211</width>
-      <height>61</height>
+      <y>350</y>
+      <width>241</width>
+      <height>51</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Cooper Black</family>
-      <pointsize>22</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background-color: #28a745;  /* Color de fondo verde */
-    color: white;               /* Color del texto */
-    border-radius: 5px;         /* Bordes redondeados */
-    padding: 5px;               /* Espacio interno */
-}
-QPushButton:hover {
-    background-color: #218838;  /* Color cuando el mouse pasa encima */
-}
-QPushButton:pressed {
-    background-color: #1e7e34;  /* Color cuando el botón es presionado */
-}
-</string>
-    </property>
     <property name="text">
-     <string>CONTINUAR</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imgbot2.png</normaloff>imgbot2.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>500</width>
+      <height>90</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -97,7 +84,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
+     <width>711</width>
      <height>21</height>
     </rect>
    </property>
@@ -105,5 +92,25 @@ QPushButton:pressed {
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>ventana2</receiver>
+   <slot>ir_a_siguiente_pestana()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>359</x>
+     <y>397</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>364</x>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ir_a_siguiente_pestana()</slot>
+ </slots>
 </ui>

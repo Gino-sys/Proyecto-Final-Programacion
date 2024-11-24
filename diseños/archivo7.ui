@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
-    <height>448</height>
+    <width>845</width>
+    <height>577</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,27 +17,33 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>575</width>
-      <height>403</height>
+      <x>0</x>
+      <y>-20</y>
+      <width>901</width>
+      <height>641</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagenV7.png</pixmap>
+     <pixmap>ImagenCruces.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>43</y>
-      <width>91</width>
-      <height>20</height>
+      <x>40</x>
+      <y>240</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_1</string>
@@ -46,11 +52,17 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>83</y>
-      <width>91</width>
+      <x>40</x>
+      <y>330</y>
+      <width>101</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_2</string>
@@ -59,11 +71,17 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>132</y>
-      <width>91</width>
+      <x>40</x>
+      <y>400</y>
+      <width>101</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_3</string>
@@ -72,11 +90,17 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>172</y>
-      <width>91</width>
-      <height>21</height>
+      <x>40</x>
+      <y>480</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_4</string>
@@ -85,11 +109,17 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>213</y>
+      <x>730</x>
+      <y>240</y>
       <width>91</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_5</string>
@@ -98,11 +128,17 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>253</y>
+      <x>730</x>
+      <y>330</y>
       <width>91</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_6</string>
@@ -111,11 +147,17 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>303</y>
+      <x>730</x>
+      <y>400</y>
       <width>91</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_7</string>
@@ -124,11 +166,17 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>341</y>
+      <x>730</x>
+      <y>479</y>
       <width>91</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Equipo_8</string>
@@ -138,10 +186,16 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>63</y>
+      <y>279</y>
       <width>101</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_1</string>
@@ -151,10 +205,16 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>152</y>
+      <y>440</y>
       <width>101</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_2</string>
@@ -163,11 +223,17 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>233</y>
+      <x>590</x>
+      <y>279</y>
       <width>91</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_3</string>
@@ -176,11 +242,17 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>323</y>
+      <x>590</x>
+      <y>440</y>
       <width>91</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_4</string>
@@ -189,48 +261,75 @@
    <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>110</y>
+      <x>310</x>
+      <y>370</y>
       <width>91</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_5</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_15">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>282</y>
+      <x>460</x>
+      <y>370</y>
       <width>91</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_6</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>190</y>
-      <width>101</width>
-      <height>20</height>
+      <x>370</x>
+      <y>340</y>
+      <width>121</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Cooper Black</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Ganador_Final</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>320</y>
-      <width>151</width>
+      <x>310</x>
+      <y>460</y>
+      <width>251</width>
       <height>61</height>
      </rect>
     </property>
@@ -256,7 +355,17 @@ QPushButton:pressed {
 </string>
     </property>
     <property name="text">
-     <string>VER PODIO</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>imgbot8.png</normaloff>imgbot8.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>300</width>
+      <height>90</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -265,7 +374,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>589</width>
+     <width>845</width>
      <height>21</height>
     </rect>
    </property>
