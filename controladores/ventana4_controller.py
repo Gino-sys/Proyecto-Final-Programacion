@@ -38,7 +38,17 @@ class ventana4(QMainWindow, Ui_MainWindow):
     def verificar_campos(self):
         # Verifica si todos los QLineEdit tienen contenido
         todos_completos = all(line_edit.text().strip() for line_edit in self.line_edits)
-        self.pushButton.setEnabled(todos_completos)
+        
+        # Verifica si los nombres son únicos
+        nombres = [line_edit.text().strip() for line_edit in self.line_edits]
+        nombres_unicos = len(nombres) == len(set(nombres))
+        
+        # Habilita el botón solo si todas las condiciones se cumplen
+        self.pushButton.setEnabled(todos_completos and nombres_unicos)
+        
+        # Opcional: Mostrar un mensaje si hay nombres duplicados
+        if not nombres_unicos and todos_completos:
+            QMessageBox.warning(self, "Nombres duplicados", "No se permiten nombres repetidos. Por favor, verifica los campos.")
 
     def siguiente(self):
     

@@ -13,13 +13,9 @@ class ventana3(QMainWindow, Ui_MainWindow):
         self.setFixedSize(self.size())
         self.animar_boton()
         self.ventana4 = None
-        self.torneo = torneo  # Guarda la instancia de Torneo
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
         self.texto_torneo = texto  # Guarda el texto para pasarlo a la siguiente ventana
 
-        # Muestra el nombre del torneo recibido al iniciar la ventana
-        if self.torneo:
-            self.mostrar_texto(self.torneo.nombre)  # Asegúrate de acceder correctamente al atributo 'nombre'
 
     def mostrar_texto(self, texto):
         # Actualiza un QLabel o QTextEdit para mostrar el texto

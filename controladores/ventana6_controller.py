@@ -1,11 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow
 from interfaces.ui_archivo6 import Ui_MainWindow
-<<<<<<< HEAD
-from controladores.ventana7_controller import Ventana7
-=======
 from controladores.ventana7_controller import ventana7
-from clases.equipos import Equipos  # Importamos la clase Equipos
->>>>>>> b76d7b7780ce1e39349639d2e884e2af2511fd68
 
 class ventana6(QMainWindow, Ui_MainWindow):
     def __init__(self, nombres_equipos, ventana_principal=None, texto=""):
@@ -46,7 +41,3 @@ class ventana6(QMainWindow, Ui_MainWindow):
         ]
         for i, nombre in enumerate(self.nombres_equipos):
             labels[i].setText(nombre)
-<<<<<<< HEAD
-
-=======
->>>>>>> b76d7b7780ce1e39349639d2e884e2af2511fd68
