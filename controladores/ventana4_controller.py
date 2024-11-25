@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_archivo4 import Ui_MainWindow
 from controladores.ventana5_controller import ventana5
@@ -12,7 +12,7 @@ class ventana4(QMainWindow, Ui_MainWindow):
         self.setFixedSize(self.size())
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
         self.animar_boton()
-
+    
         self.texto_torneo = texto_torneo  # Guarda el texto para pasarlo a ventana5
         # Suponiendo que los nombres de los QLineEdit en la interfaz son lineEdit1, lineEdit2, etc.
         self.line_edits = [
@@ -35,19 +35,10 @@ class ventana4(QMainWindow, Ui_MainWindow):
     def verificar_campos(self):
         # Verifica si todos los QLineEdit tienen contenido
         todos_completos = all(line_edit.text().strip() for line_edit in self.line_edits)
-        
-        # Verifica si los nombres son únicos
-        nombres = [line_edit.text().strip() for line_edit in self.line_edits]
-        nombres_unicos = len(nombres) == len(set(nombres))
-        
-        # Habilita el botón solo si todas las condiciones se cumplen
-        self.pushButton.setEnabled(todos_completos and nombres_unicos)
-        
-        # Opcional: Mostrar un mensaje si hay nombres duplicados
-        if not nombres_unicos and todos_completos:
-            QMessageBox.warning(self, "Nombres duplicados", "No se permiten nombres repetidos. Por favor, verifica los campos.")
+        self.pushButton.setEnabled(todos_completos)
 
     def siguiente(self):
+    
         nombres_equipos = [line_edit.text() for line_edit in self.line_edits]
         
         if self.ventana5 is None:
@@ -67,4 +58,6 @@ class ventana4(QMainWindow, Ui_MainWindow):
 
         # Repetir indefinidamente
         self.animation.setLoopCount(-1)
-        self.animation.start()
+        self.animation.start()     
+    
+        
