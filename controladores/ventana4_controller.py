@@ -38,16 +38,21 @@ class ventana4(QMainWindow, Ui_MainWindow):
     def verificar_campos(self):
         # Verifica si todos los QLineEdit tienen contenido
         todos_completos = all(line_edit.text().strip() for line_edit in self.line_edits)
-        self.pushButton.setEnabled(todos_completos)
+        
+        # Verifica si los nombres son únicos
+        nombres = [line_edit.text().strip() for line_edit in self.line_edits]
+        nombres_unicos = len(nombres) == len(set(nombres))
+        
+        # Habilita el botón solo si todas las condiciones se cumplen
+        self.pushButton.setEnabled(todos_completos and nombres_unicos)
+        
+        # Opcional: Mostrar un mensaje si hay nombres duplicados
+        if not nombres_unicos and todos_completos:
+            QMessageBox.warning(self, "Nombres duplicados", "No se permiten nombres repetidos. Por favor, verifica los campos.")
 
     def siguiente(self):
-<<<<<<< Updated upstream
     
         nombres_equipos = [line_edit.text() for line_edit in self.line_edits]
-=======
-        # Recoge los nombres de los equipos
-        nombres_equipos = [line_edit.text().strip() for line_edit in self.line_edits]
->>>>>>> Stashed changes
         
         # Agregar los equipos a la instancia de Equipos
         for nombre in nombres_equipos:
@@ -72,5 +77,3 @@ class ventana4(QMainWindow, Ui_MainWindow):
         # Repetir indefinidamente
         self.animation.setLoopCount(-1)
         self.animation.start()     
-    
-        

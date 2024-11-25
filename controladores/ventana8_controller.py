@@ -15,15 +15,6 @@ class ventana8(QMainWindow, Ui_MainWindow):
         self.torneo = torneo
         self.ventana1 = ventana_principal
 
-<<<<<<< Updated upstream
-=======
-        # Actualiza el label con el nombre del torneo
-        if self.torneo and hasattr(self.torneo, 'nombre'):
-            self.label_2.setText(self.torneo.nombre)
-        else:
-            self.label_2.setText("Torneo no definido")
-        
->>>>>>> Stashed changes
         self.pushButton_2.clicked.connect(self.principio)
 
     def next(self):
@@ -34,23 +25,4 @@ class ventana8(QMainWindow, Ui_MainWindow):
         self.hide()
 
     def principio(self):
-<<<<<<< Updated upstream
         QApplication.quit()  # Cierra toda la aplicación
-=======
-        """Regresa a la ventana principal."""
-        self.close()
-
-    def closeEvent(self, event):
-        """Confirma antes de cerrar la ventana."""
-        reply = QMessageBox.question(
-            self,
-            'Confirmar Cierre',
-            '¿Estás seguro de que deseas salir?',
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No
-        )
-        if reply == QMessageBox.Yes:
-            event.accept()
-        else:
-            event.ignore()
->>>>>>> Stashed changes

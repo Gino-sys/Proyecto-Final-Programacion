@@ -1,11 +1,10 @@
-<<<<<<< Updated upstream
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve, Qt
 from PyQt5.QtGui import QGuiApplication
-=======
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
->>>>>>> Stashed changes
+
 from interfaces.ui_interfaz import Ui_MainWindow
 from controladores.ventana2_controller import Ventana2
 from clases.torneos import Torneo  # Importar la clase Torneo
@@ -27,11 +26,7 @@ class VentanaAyuda(QDialog):
 
         Después de jugar el torneo, podrá:
         - Ver la tabla de posiciones.
-<<<<<<< Updated upstream
         - Filtrar por equipo y acceder a sus resultados.
-=======
-        - Filtrar por equipo y así acceder a sus resultados
->>>>>>> Stashed changes
 
         ¡Disfrute del torneo y que gane el mejor equipo!"""
 
@@ -46,7 +41,6 @@ class VentanaAyuda(QDialog):
 
         self.setLayout(layout)
 
-<<<<<<< Updated upstream
         # Centrar la ventana de ayuda en la pantalla
         self.centrar_ventana()
 
@@ -64,8 +58,6 @@ class VentanaAyuda(QDialog):
         # Mover la ventana al centro de la pantalla
         self.move(x, y)
 
-=======
->>>>>>> Stashed changes
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
