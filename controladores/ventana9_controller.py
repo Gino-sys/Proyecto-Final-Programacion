@@ -7,7 +7,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
     def __init__(self, ventana_anterior=None):
         super().__init__()
         self.setupUi(self)
-        self.resize(685, 340)  # Tamaño inicial
+        self.resize(840, 495)  # Tamaño inicial
         self.setFixedSize(self.size())
 
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a la ventana anterior
@@ -15,7 +15,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
         self.cargar_datos_json()  # Carga los datos del JSON al iniciar
 
         # Conecta los botones
-        self.pushButton.clicked.connect(self.buscar_equipo)  # Botón "BUSCAR"
+        self.pushButton.clicked.connect(self.buscar)  # Botón "BUSCAR"
         self.pushButton_2.clicked.connect(self.regresar)  # Botón "VOLVER"
 
     def cargar_datos_json(self):
@@ -28,7 +28,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
         except json.JSONDecodeError:
             self.datos = []  # Si hay un error en el archivo JSON, crea una lista vacía
 
-    def buscar_equipo(self):
+    def buscar(self):
         """Busca los datos de un equipo en el JSON y los muestra en el QListWidget."""
         nombre_equipo = self.lineEdit.text().strip()
         self.listWidget.clear()  # Limpia el listado antes de mostrar los resultados

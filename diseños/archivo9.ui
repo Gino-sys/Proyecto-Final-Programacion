@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>707</width>
-    <height>400</height>
+    <width>836</width>
+    <height>511</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,25 +18,25 @@
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>-40</y>
-      <width>731</width>
-      <height>461</height>
+      <y>-90</y>
+      <width>861</width>
+      <height>641</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>imagenV9.png</pixmap>
+     <pixmap>NUEVAV9.png</pixmap>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>10</y>
-      <width>291</width>
-      <height>31</height>
+      <x>20</x>
+      <y>80</y>
+      <width>301</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="placeholderText">
@@ -46,10 +46,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>50</y>
-      <width>131</width>
-      <height>31</height>
+      <x>330</x>
+      <y>80</y>
+      <width>211</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -58,25 +58,35 @@
       <pointsize>12</pointsize>
      </font>
     </property>
-    <property name="text">
-     <string>BUSCAR</string>
+    <property name="icon">
+     <iconset>
+      <normaloff>buscar.png</normaloff>buscar.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>400</width>
+      <height>70</height>
+     </size>
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>90</y>
-      <width>291</width>
-      <height>181</height>
+      <x>20</x>
+      <y>150</y>
+      <width>501</width>
+      <height>261</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255, 255, 255, 255), stop:0.373979 rgba(255, 255, 255, 255), stop:0.373991 rgba(33, 30, 255, 255), stop:0.624018 rgba(33, 30, 255, 255), stop:0.624043 rgba(255, 0, 0, 255), stop:1 rgba(255, 0, 0, 255));</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>290</y>
+      <x>200</x>
+      <y>430</y>
       <width>151</width>
       <height>31</height>
      </rect>
@@ -87,8 +97,15 @@
       <pointsize>16</pointsize>
      </font>
     </property>
-    <property name="text">
-     <string>VOLVER</string>
+    <property name="icon">
+     <iconset>
+      <normaloff>botonVolver.png</normaloff>botonVolver.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>400</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -97,7 +114,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>707</width>
+     <width>836</width>
      <height>21</height>
     </rect>
    </property>
