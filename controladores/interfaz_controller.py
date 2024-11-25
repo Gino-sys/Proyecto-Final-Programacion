@@ -1,8 +1,13 @@
+
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve, Qt
 from PyQt5.QtGui import QGuiApplication
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
+
 from interfaces.ui_interfaz import Ui_MainWindow
 from controladores.ventana2_controller import Ventana2
+from clases.torneos import Torneo  # Importar la clase Torneo
 
 
 class VentanaAyuda(QDialog):
@@ -61,6 +66,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.resize(790, 460)  # Tamaño inicial
         self.setFixedSize(self.size())
 
+        # Crear una instancia de la clase Torneo
+        self.torneo = Torneo("Mi Torneo")  # Asigna un nombre inicial
+
+        # Conectar botones
         self.torneo_button.clicked.connect(self.abrir)
         self.ventana2 = None
 

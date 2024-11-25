@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_archivo4 import Ui_MainWindow
 from controladores.ventana5_controller import ventana5
+from clases.equipos import Equipos
 
 
 class ventana4(QMainWindow, Ui_MainWindow):
@@ -14,7 +15,8 @@ class ventana4(QMainWindow, Ui_MainWindow):
         self.animar_boton()
     
         self.texto_torneo = texto_torneo  # Guarda el texto para pasarlo a ventana5
-        # Suponiendo que los nombres de los QLineEdit en la interfaz son lineEdit1, lineEdit2, etc.
+        
+        # Conecta los QLineEdit para los nombres de los equipos
         self.line_edits = [
             self.lineEdit_1, self.lineEdit_2, self.lineEdit_3, self.lineEdit_4,
             self.lineEdit_5, self.lineEdit_6, self.lineEdit_7, self.lineEdit_8
@@ -31,18 +33,34 @@ class ventana4(QMainWindow, Ui_MainWindow):
         self.pushButton.clicked.connect(self.siguiente)
         
         self.ventana5 = None
+        self.equipos = Equipos()  # Instancia de la clase Equipos
 
     def verificar_campos(self):
         # Verifica si todos los QLineEdit tienen contenido
         todos_completos = all(line_edit.text().strip() for line_edit in self.line_edits)
-        self.pushButton.setEnabled(todos_completos)
+        
+        # Verifica si los nombres son únicos
+        nombres = [line_edit.text().strip() for line_edit in self.line_edits]
+        nombres_unicos = len(nombres) == len(set(nombres))
+        
+        # Habilita el botón solo si todas las condiciones se cumplen
+        self.pushButton.setEnabled(todos_completos and nombres_unicos)
+        
+        # Opcional: Mostrar un mensaje si hay nombres duplicados
+        if not nombres_unicos and todos_completos:
+            QMessageBox.warning(self, "Nombres duplicados", "No se permiten nombres repetidos. Por favor, verifica los campos.")
 
     def siguiente(self):
     
         nombres_equipos = [line_edit.text() for line_edit in self.line_edits]
         
+        # Agregar los equipos a la instancia de Equipos
+        for nombre in nombres_equipos:
+            self.equipos.agregar_equipo(nombre)
+        
+        # Pasamos el texto del torneo y los equipos a la siguiente ventana (ventana 5)
         if self.ventana5 is None:
-            self.ventana5 = ventana5(self.texto_torneo, nombres_equipos, self, self.ventana1)
+            self.ventana5 = ventana5(self.texto_torneo, self.equipos, self, self.ventana1)
         self.ventana5.show()
         self.hide()  # Cierra la ventana actual
     
@@ -59,5 +77,3 @@ class ventana4(QMainWindow, Ui_MainWindow):
         # Repetir indefinidamente
         self.animation.setLoopCount(-1)
         self.animation.start()     
-    
-        

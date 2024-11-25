@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>598</width>
-    <height>374</height>
+    <width>707</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -97,8 +97,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>598</width>
-     <height>20</height>
+     <width>707</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -118,7 +118,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>388</x>
-     <y>419</y>
+     <y>399</y>
     </hint>
    </hints>
   </connection>
