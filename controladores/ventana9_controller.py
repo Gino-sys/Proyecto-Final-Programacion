@@ -7,7 +7,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
     def __init__(self, ventana_anterior=None):
         super().__init__()
         self.setupUi(self)
-        self.resize(685, 460)  # Tamaño inicial
+        self.resize(685, 340)  # Tamaño inicial
         self.setFixedSize(self.size())
 
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a la ventana anterior

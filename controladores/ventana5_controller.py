@@ -1,42 +1,51 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from interfaces.ui_archivo5 import Ui_MainWindow
 from controladores.ventana6_controller import ventana6
+from clases.torneos import Torneo  # Importamos la clase Torneo
 
 
 class ventana5(QMainWindow, Ui_MainWindow):
-    def __init__(self, texto="", nombres_equipos=None, ventana_anterior=None, ventana_principal=None):
+    def __init__(self, torneo, nombres_equipos=None, ventana_anterior=None, ventana_principal=None):
         super().__init__()
         self.setupUi(self)
-        self.label.setText(texto)  # Muestra el texto en el QLabel
-        self.resize(650, 385)  # Tamaño inicial
+
+        self.torneo = torneo  # Instancia de Torneo
+        self.nombres_equipos = nombres_equipos or []  # Lista de nombres de los equipos
+        self.ventana_anterior = ventana_anterior  # Referencia a la ventana4
+        self.ventana_principal = ventana_principal  # Referencia a la ventana principal
+        self.ventana6 = None  # Inicialmente no existe ventana6
+
+        # Ajustes de la ventana
+        self.label.setText(f"TU TORNEO: {self.torneo.nombre}")  # Mostrar nombre del torneo
+        self.resize(705, 402)  # Tamaño inicial
         self.setFixedSize(self.size())
-        self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
-        self.texto_torneo = texto  # Guarda el texto para pasarlo a ventana5
 
-
-
-        self.ventana6 = None
-        self.nombres_equipos = nombres_equipos
-        self.ventana_anterior = ventana_anterior  # Guarda la referencia a ventana4
-        # Conecta el botón `pushButton_2` para volver a `ventana4`
-        self.pushButton_2.clicked.connect(self.Volver)
+        # Conecta los botones a sus respectivas funciones
+        self.pushButton_2.clicked.connect(self.Volver)  # Botón para volver a ventana4
+        self.pushButton.clicked.connect(self.siguiente)  # Botón para ir a ventana6
 
     def Volver(self):
-        # Muestra ventana4 y cierra ventana5
+        # Regresa a la ventana anterior (ventana4) para editar equipos
         if self.ventana_anterior is not None:
             self.ventana_anterior.show()
         self.close()
-        
+
     def siguiente(self):
-        # Obtén los nombres actualizados de los equipos de ventana 4
-        nombres_equipos_actualizados = [line_edit.text() for line_edit in self.ventana_anterior.line_edits]
+        # Obtén los nombres actualizados de los equipos desde ventana4
+        if self.ventana_anterior is not None:
+            self.nombres_equipos = [line_edit.text() for line_edit in self.ventana_anterior.line_edits]
+
+        # Verifica si hay exactamente 8 equipos
+        if len(self.nombres_equipos) != 8:
+            QMessageBox.warning(self, "Error", "Debes ingresar exactamente 8 equipos.")
+            return
 
         # Si ventana6 ya existe, actualiza los equipos
         if self.ventana6 is not None:
-            self.ventana6.actualizar_equipos(nombres_equipos_actualizados)
+            self.ventana6.actualizar_equipos(self.nombres_equipos)
         else:
-            # Si ventana6 no existe, créala con los datos actuales
-            self.ventana6 = ventana6(nombres_equipos_actualizados, self.ventana1, self.texto_torneo)
-    
+            # Crea ventana6 con los datos actuales
+            self.ventana6 = ventana6(self.nombres_equipos, self.ventana_principal)
+        
         self.ventana6.show()
-        self.hide()  # Cierra la ventana actual
+        self.hide()  # Oculta la ventana actual

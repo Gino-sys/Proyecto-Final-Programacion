@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow
 from interfaces.ui_archivo6 import Ui_MainWindow
 from controladores.ventana7_controller import ventana7
-
+from clases.equipos import Equipos  # Importamos la clase Equipos
 
 class ventana6(QMainWindow, Ui_MainWindow):
     def __init__(self, nombres_equipos, ventana_principal=None, texto=""):
@@ -39,6 +39,3 @@ class ventana6(QMainWindow, Ui_MainWindow):
         ]
         for i, nombre in enumerate(self.nombres_equipos):
             labels[i].setText(nombre)
-
-
-    
