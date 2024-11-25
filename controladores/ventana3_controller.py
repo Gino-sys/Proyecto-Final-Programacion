@@ -6,7 +6,7 @@ from clases.torneos import Torneo  # Importar la clase Torneo
 
 
 class ventana3(QMainWindow, Ui_MainWindow):
-    def __init__(self, ventana_principal=None, torneo=None):
+    def __init__(self,texto="", ventana_principal=None, torneo=None):
         super().__init__()
         self.setupUi(self)
         self.resize(700, 495)  # Tamaño inicial
@@ -15,6 +15,7 @@ class ventana3(QMainWindow, Ui_MainWindow):
         self.ventana4 = None
         self.torneo = torneo  # Guarda la instancia de Torneo
         self.ventana1 = ventana_principal  # Guarda la referencia de ventana1
+        self.texto_torneo = texto  # Guarda el texto para pasarlo a la siguiente ventana
 
         # Muestra el nombre del torneo recibido al iniciar la ventana
         if self.torneo:
@@ -30,7 +31,7 @@ class ventana3(QMainWindow, Ui_MainWindow):
 
     def otra(self):
         if self.ventana4 is None:
-            self.ventana4 = ventana4(self.torneo, self.ventana1)  # Pasa el torneo a ventana4
+            self.ventana4 = ventana4(self.texto_torneo, self.ventana1)  # Pasa el torneo a ventana4
         self.ventana4.show()
         self.hide()
     
