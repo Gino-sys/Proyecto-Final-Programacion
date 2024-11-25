@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem
+from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 import json
 from interfaces.ui_archivo9 import Ui_MainWindow
 
@@ -9,6 +10,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.resize(840, 495)  # Tamaño inicial
         self.setFixedSize(self.size())
+        self.animar_boton()
 
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a la ventana anterior
         self.archivo_json = "datos/historial.json"  # Ruta al archivo JSON
@@ -54,3 +56,17 @@ class ventana9(QMainWindow, Ui_MainWindow):
         if self.ventana_anterior is not None:
             self.ventana_anterior.show()
         self.hide()
+    def animar_boton(self):
+        # Crear una animación para el botón torneo_button
+        self.animation = QPropertyAnimation(self.pushButton, b"geometry")
+        self.animation.setDuration(800)  # Duración total del rebote
+        self.animation.setStartValue(self.pushButton.geometry())  # Posición inicial
+        self.animation.setEndValue(self.pushButton.geometry().adjusted(6, 0, 6, 0))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation.setLoopCount(-1)
+        self.animation.start() 
+    

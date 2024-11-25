@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_archivo8 import Ui_MainWindow
 from controladores.ventana9_controller import ventana9
 from clases.torneos import Torneo
@@ -9,8 +10,8 @@ class ventana8(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.resize(750, 485)  # Tamaño inicial
         self.setFixedSize(self.size())
-        self.torneo = Torneo()  # Asigna un nombre inicial
-
+        self.torneo = Torneo() # Asigna un nombre inicial
+        self.animar_boton()
         texto_torneo = texto
         self.label_2.setText(texto_torneo)  # Muestra el texto en el QLabel
 
@@ -42,3 +43,16 @@ class ventana8(QMainWindow, Ui_MainWindow):
             event.accept()  # Permite que se cierre la ventana
         else:
             event.ignore()  # No permite el cierre de la ventana
+    def animar_boton(self):
+        # Crear una animación para el botón torneo_button
+        self.animation = QPropertyAnimation(self.pushButton, b"geometry")
+        self.animation.setDuration(800)  # Duración total del rebote
+        self.animation.setStartValue(self.pushButton.geometry())  # Posición inicial
+        self.animation.setEndValue(self.pushButton.geometry().adjusted(0, 6, 0, 6))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation.setLoopCount(-1)
+        self.animation.start()        
