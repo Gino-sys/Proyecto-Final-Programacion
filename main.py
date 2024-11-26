@@ -1,3 +1,5 @@
+import serial
+import time
 import sys
 from controladores.interfaz_controller import MainWindow # Importa el controlador
 import sys
@@ -11,3 +13,4 @@ if __name__ == "__main__": #checkea si el script está siendo ejecutado como el 
     window = MainWindow()  
     window.show()
     sys.exit(app.exec_()) 
+
