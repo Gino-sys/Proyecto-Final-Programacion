@@ -17,7 +17,7 @@ class Ventana2(QMainWindow, Ui_MainWindow):
         self.ventana1 = ventana_principal
 
         # Instancia de Torneo
-        self.torneo = Torneo(nombre="")
+        self.torneo = Torneo()
 
         # Conectar la señal de texto del QLineEdit a la función que habilita el botón
         self.lineEdit.textChanged.connect(self.habilitar_boton)
@@ -55,7 +55,7 @@ class Ventana2(QMainWindow, Ui_MainWindow):
 
         if self.ventana3 is None:
         # Pasa la instancia de torneo y la ventana1 a ventana3
-            self.ventana3 = ventana3(self.ventana1, self.torneo)  # Pasa la instancia del torneo
+            self.ventana3 = ventana3(texto_para_mostrar, self.ventana1, self.torneo)  # Pasa la instancia del torneo
         else:
         # Si la ventana ya está creada, solo actualiza el texto
             self.ventana3.actualizar_texto(texto_para_mostrar)

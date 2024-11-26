@@ -1,4 +1,3 @@
-import serial
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_archivo4 import Ui_MainWindow
@@ -36,9 +35,6 @@ class ventana4(QMainWindow, Ui_MainWindow):
         self.ventana5 = None
         self.equipos = Equipos()  # Instancia de la clase Equipos
 
-        # Configuración del puerto serial (ajusta el puerto y la velocidad)
-        self.ser = serial.Serial('/dev/ttyACM1', 9600)  # Reemplaza 'COM3' con el puerto correcto en tu sistema
-
     def verificar_campos(self):
         # Verifica si todos los QLineEdit tienen contenido
         todos_completos = all(line_edit.text().strip() for line_edit in self.line_edits)
@@ -55,24 +51,18 @@ class ventana4(QMainWindow, Ui_MainWindow):
             QMessageBox.warning(self, "Nombres duplicados", "No se permiten nombres repetidos. Por favor, verifica los campos.")
 
     def siguiente(self):
-        nombres_equipos = [line_edit.text() for line_edit in self.line_edits]
     
+        nombres_equipos = [line_edit.text() for line_edit in self.line_edits]
+        
         # Agregar los equipos a la instancia de Equipos
         for nombre in nombres_equipos:
             self.equipos.agregar_equipo(nombre)
-    
-        # Enviar los nombres de los equipos al Arduino a través del puerto serial
-        if self.ser.is_open:
-            for nombre in nombres_equipos:
-                self.ser.write(nombre.encode())  # Enviar cada nombre de equipo
-                self.ser.write(b'\n')  # Enviar salto de línea para separar los nombres
-    
+        
         # Pasamos el texto del torneo y los equipos a la siguiente ventana (ventana 5)
         if self.ventana5 is None:
             self.ventana5 = ventana5(self.texto_torneo, self.equipos, self, self.ventana1)
         self.ventana5.show()
         self.hide()  # Cierra la ventana actual
-
     
     def animar_boton(self):
         # Crear una animación para el botón torneo_button
@@ -87,5 +77,5 @@ class ventana4(QMainWindow, Ui_MainWindow):
         # Repetir indefinidamente
         self.animation.setLoopCount(-1)
         self.animation.start()     
-
     
+        

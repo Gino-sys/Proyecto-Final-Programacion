@@ -4,19 +4,19 @@ from controladores.ventana6_controller import ventana6
 from clases.torneos import Torneo  # Importamos la clase Torneo
 
 
-class ventana5(QMainWindow, Ui_MainWindow):
-    def __init__(self, torneo, nombres_equipos=None, ventana_anterior=None, ventana_principal=None):
+class ventana5(QMainWindow, Ui_MainWindow, Torneo):
+    def __init__(self,texto="", nombres_equipos=None, ventana_anterior=None, ventana_principal=None):
         super().__init__()
         self.setupUi(self)
 
-        self.torneo = torneo  # Instancia de Torneo
         self.nombres_equipos = nombres_equipos or []  # Lista de nombres de los equipos
         self.ventana_anterior = ventana_anterior  # Referencia a la ventana4
         self.ventana_principal = ventana_principal  # Referencia a la ventana principal
         self.ventana6 = None  # Inicialmente no existe ventana6
+        self.texto_torneo = texto  # Guarda el texto para pasarlo a ventana5
 
         # Ajustes de la ventana
-        self.label.setText(f"TU TORNEO: {self.torneo.nombre}")  # Mostrar nombre del torneo
+        self.label.setText(f"{self.texto_torneo}")  # Mostrar nombre del torneo
         self.resize(705, 402)  # Tamaño inicial
         self.setFixedSize(self.size())
 
@@ -45,7 +45,7 @@ class ventana5(QMainWindow, Ui_MainWindow):
             self.ventana6.actualizar_equipos(self.nombres_equipos)
         else:
             # Crea ventana6 con los datos actuales
-            self.ventana6 = ventana6(self.nombres_equipos, self.ventana_principal)
+            self.ventana6 = ventana6(self.nombres_equipos, self.ventana_principal, self.texto_torneo)
         
         self.ventana6.show()
         self.hide()  # Oculta la ventana actual

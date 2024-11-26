@@ -67,7 +67,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setFixedSize(self.size())
 
         # Crear una instancia de la clase Torneo
-        self.torneo = Torneo("Mi Torneo")  # Asigna un nombre inicial
+        self.torneo = Torneo()  # Asigna un nombre inicial
 
         # Conectar botones
         self.torneo_button.clicked.connect(self.abrir)
