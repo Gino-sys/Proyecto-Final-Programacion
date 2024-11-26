@@ -1,4 +1,4 @@
-import serial
+
 import time
 import sys
 from controladores.interfaz_controller import MainWindow # Importa el controlador

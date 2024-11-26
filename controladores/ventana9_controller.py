@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem
-from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
+from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QHBoxLayout
+from PyQt5.QtGui import QColor, QFont
+from PyQt5.QtCore import Qt
 import json
 from interfaces.ui_archivo9 import Ui_MainWindow
 
@@ -8,9 +9,8 @@ class ventana9(QMainWindow, Ui_MainWindow):
     def __init__(self, ventana_anterior=None):
         super().__init__()
         self.setupUi(self)
-        self.resize(840, 495)  # Tamaño inicial
+        self.resize(765, 440)  # Tamaño inicial
         self.setFixedSize(self.size())
-        self.animar_boton()
 
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a la ventana anterior
         self.archivo_json = "datos/historial.json"  # Ruta al archivo JSON
@@ -44,29 +44,37 @@ class ventana9(QMainWindow, Ui_MainWindow):
 
         if resultados:
             for partido in resultados:
-                item = QListWidgetItem(
-                    f"{partido['partido']} - Resultado: {partido['resultado']}"
-                )
-                self.listWidget.addItem(item)
+                self.agregar_item_personalizado(partido['partido'], partido['resultado'])
         else:
             self.listWidget.addItem("No se encontraron resultados para el equipo ingresado.")
+
+    def agregar_item_personalizado(self, partido, resultado):
+        """Crea un elemento personalizado para el QListWidget."""
+        # Crear un widget personalizado
+        widget_item = QWidget(self)
+        layout_item = QHBoxLayout(widget_item)
+        layout_item.setContentsMargins(10, 5, 10, 5)
+
+        # Etiqueta para el nombre del partido
+        label_partido = QLabel(partido, self)
+        label_partido.setFont(QFont("Cooper Black", 14, QFont.Bold))
+        label_partido.setStyleSheet("color: #2C3E50;")
+        layout_item.addWidget(label_partido, alignment=Qt.AlignLeft)
+
+        # Etiqueta para el resultado
+        label_resultado = QLabel(resultado, self)
+        label_resultado.setFont(QFont("Cooper Black", 10, QFont.Bold))
+        label_resultado.setStyleSheet("color: #16A085;")
+        layout_item.addWidget(label_resultado, alignment=Qt.AlignRight)
+
+        # Crear un QListWidgetItem para asociar con el widget personalizado
+        list_item = QListWidgetItem(self.listWidget)
+        list_item.setSizeHint(widget_item.sizeHint())
+        self.listWidget.addItem(list_item)
+        self.listWidget.setItemWidget(list_item, widget_item)
 
     def regresar(self):
         """Vuelve a la ventana anterior."""
         if self.ventana_anterior is not None:
             self.ventana_anterior.show()
         self.hide()
-    def animar_boton(self):
-        # Crear una animación para el botón torneo_button
-        self.animation = QPropertyAnimation(self.pushButton, b"geometry")
-        self.animation.setDuration(800)  # Duración total del rebote
-        self.animation.setStartValue(self.pushButton.geometry())  # Posición inicial
-        self.animation.setEndValue(self.pushButton.geometry().adjusted(6, 0, 6, 0))  # Mover ligeramente hacia abajo
-
-        # Usar una curva de animación para el efecto de rebote
-        self.animation.setEasingCurve(QEasingCurve.OutBounce)
-
-        # Repetir indefinidamente
-        self.animation.setLoopCount(-1)
-        self.animation.start() 
-    

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo9BKMEvh.ui'
+## Form generated from reading UI file 'archivo9gFZQlf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -41,6 +41,7 @@ class Ui_MainWindow(object):
         self.listWidget = QListWidget(self.centralwidget)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setGeometry(QRect(20, 150, 501, 261))
+        self.listWidget.setFont(font)
         self.listWidget.setStyleSheet(u"color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(255, 255, 255, 255), stop:0.373979 rgba(255, 255, 255, 255), stop:0.373991 rgba(33, 30, 255, 255), stop:0.624018 rgba(33, 30, 255, 255), stop:0.624043 rgba(255, 0, 0, 255), stop:1 rgba(255, 0, 0, 255));")
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
