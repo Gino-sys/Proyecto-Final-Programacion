@@ -9,7 +9,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
     def __init__(self, ventana_anterior=None):
         super().__init__()
         self.setupUi(self)
-        self.resize(765, 440)  # Tamaño inicial
+        self.resize(765, 490)  # Tamaño inicial
         self.setFixedSize(self.size())
 
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a la ventana anterior
@@ -90,7 +90,10 @@ class ventana9(QMainWindow, Ui_MainWindow):
         self.listWidget.setItemWidget(list_item, widget_item)
 
     def regresar(self):
-        """Vuelve a la ventana anterior."""
+        """Vuelve a la ventana anterior y resetea el contenido."""
         if self.ventana_anterior is not None:
             self.ventana_anterior.show()
+        # Limpiar el QListWidget y el QLineEdit
+        self.listWidget.clear()
+        self.lineEdit.clear()
         self.hide()
