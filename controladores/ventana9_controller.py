@@ -57,14 +57,30 @@ class ventana9(QMainWindow, Ui_MainWindow):
 
         # Etiqueta para el nombre del partido
         label_partido = QLabel(partido, self)
-        label_partido.setFont(QFont("Cooper Black", 14, QFont.Bold))
+        label_partido.setFont(QFont("Cooper Black", 14))  # Cambiado a Cooper Black
         label_partido.setStyleSheet("color: #2C3E50;")
         layout_item.addWidget(label_partido, alignment=Qt.AlignLeft)
 
+        # Analizar el resultado
+        try:
+            equipo1_goles, equipo2_goles = map(int, resultado.split("-"))
+            if equipo1_goles > equipo2_goles:
+                estado = "Ganador"
+                color_estado = "#16A085"  # Verde para ganador
+            elif equipo1_goles < equipo2_goles:
+                estado = "Perdedor"
+                color_estado = "#E74C3C"  # Rojo para perdedor
+            else:
+                estado = "Empate"
+                color_estado = "#7F8C8D"  # Gris para empate
+        except ValueError:
+            estado = "Resultado inválido"
+            color_estado = "#7F8C8D"  # Gris para errores
+
         # Etiqueta para el resultado
-        label_resultado = QLabel(resultado, self)
-        label_resultado.setFont(QFont("Cooper Black", 14, QFont.Bold))
-        label_resultado.setStyleSheet("color: #16A085;")
+        label_resultado = QLabel(f"{resultado} ({estado})", self)
+        label_resultado.setFont(QFont("Cooper Black", 14, QFont.Bold))  # Cambiado a Cooper Black
+        label_resultado.setStyleSheet(f"color: {color_estado};")
         layout_item.addWidget(label_resultado, alignment=Qt.AlignRight)
 
         # Crear un QListWidgetItem para asociar con el widget personalizado
