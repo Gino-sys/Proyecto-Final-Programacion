@@ -63,7 +63,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
 
         # Etiqueta para el resultado
         label_resultado = QLabel(resultado, self)
-        label_resultado.setFont(QFont("Cooper Black", 10, QFont.Bold))
+        label_resultado.setFont(QFont("Cooper Black", 14, QFont.Bold))
         label_resultado.setStyleSheet("color: #16A085;")
         layout_item.addWidget(label_resultado, alignment=Qt.AlignRight)
 
