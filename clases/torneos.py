@@ -1,9 +1,10 @@
-from controladores.ventana2_controller import Ui_MainWindow
+import json
 
 class Torneo:
     def __init__(self, nombre=''):
-        self.partido = [] # Lista para almacenar los partidos y sus resultados
+        self.partidos = []  # Lista para almacenar los partidos y sus resultados
         self.nombre = nombre 
+
     def guardar_partido(self, equipo1, equipo2, resultado):
         """
         Guarda el resultado de un partido en la lista de partidos.
@@ -27,6 +28,22 @@ class Torneo:
         :return: Lista de diccionarios con los datos de los partidos.
         """
         return self.partidos
+
+    def guardar_json(self, archivo_json):
+        """
+        Guarda los partidos en un archivo JSON.
+        :param archivo_json: Ruta del archivo JSON donde se guardarán los partidos.
+        """
+        with open(archivo_json, 'w', encoding='utf-8') as archivo:
+            json.dump(self.partidos, archivo, ensure_ascii=False, indent=4)
+
+    def cargar_json(self, archivo_json):
+        """
+        Carga los partidos desde un archivo JSON.
+        :param archivo_json: Ruta del archivo JSON desde donde se cargarán los partidos.
+        """
+        with open(archivo_json, 'r', encoding='utf-8') as archivo:
+            self.partidos = json.load(archivo)
 
     def __str__(self):
         """

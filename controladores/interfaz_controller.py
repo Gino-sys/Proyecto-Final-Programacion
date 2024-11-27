@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
+import serial
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
 from PyQt5.QtGui import QGuiApplication
 from interfaces.ui_interfaz import Ui_MainWindow
@@ -19,6 +20,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ventana2 = None
         # Agregar animación de rebote al botón
         self.animar_boton()
+
+          # Agregar la instancia serial para la comunicación con Arduino
+        try:
+            self.ser = serial.Serial('/dev/ttyACM5', 9600)  # Asegúrate de poner el puerto correcto
+            print("Puerto serial abierto con éxito")
+        except serial.SerialException as e:
+            print(f"Error al abrir el puerto serial: {e}")
+            self.ser = None  # Si hay un error, ser será None
+            # Mostrar un mensaje de advertencia si no se puede abrir el puerto serial
+            QMessageBox.critical(self, "Error de Comunicación", "No se pudo abrir el puerto serial. Asegúrate de que el dispositivo esté conectado.")
+
 
     def abrir(self):
         if self.ventana2 is None:

@@ -1,3 +1,4 @@
+
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
@@ -34,6 +35,7 @@ class Ventana2(QMainWindow, Ui_MainWindow):
         # Agregar animación al botón
         self.animar_boton()
 
+      
     def animar_boton(self):
         # Crear una animación para el botón pushButton
         self.animation = QPropertyAnimation(self.pushButton, b"geometry")
