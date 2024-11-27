@@ -6,7 +6,7 @@ from controladores.ventana3_controller import ventana3
 from clases.torneos import Torneo  # Importar la clase Torneo
 
 class Ventana2(QMainWindow, Ui_MainWindow):
-    def __init__(self, ventana_principal=None):
+    def __init__(self, ventana_principal=None, torneo = None):
         super().__init__()
         self.setupUi(self)
         
@@ -17,7 +17,7 @@ class Ventana2(QMainWindow, Ui_MainWindow):
         self.ventana1 = ventana_principal
 
         # Instancia de Torneo
-        self.torneo = Torneo()
+        self.torneo = Torneo("Torneo Inicial")  # Crear la instancia de Torneo con nombre predeterminado
 
         # Conectar la señal de texto del QLineEdit a la función que habilita el botón
         self.lineEdit.textChanged.connect(self.habilitar_boton)
@@ -33,7 +33,7 @@ class Ventana2(QMainWindow, Ui_MainWindow):
 
         # Agregar animación al botón
         self.animar_boton()
-    
+
     def animar_boton(self):
         # Crear una animación para el botón pushButton
         self.animation = QPropertyAnimation(self.pushButton, b"geometry")
@@ -50,15 +50,18 @@ class Ventana2(QMainWindow, Ui_MainWindow):
         self.pushButton.setEnabled(bool(text.strip()))
 
     def ir_a_siguiente_pestana(self):
-    # Obtiene el texto del QLineEdit
+        # Obtiene el texto del QLineEdit
         texto_para_mostrar = self.lineEdit.text()
 
+        # Guardar el nombre del torneo en la instancia de Torneo
+        self.torneo.nombre = texto_para_mostrar  # Asignar el texto al nombre del torneo
+
         if self.ventana3 is None:
-        # Pasa la instancia de torneo y la ventana1 a ventana3
+            # Pasa la instancia de torneo y la ventana1 a ventana3
             self.ventana3 = ventana3(texto_para_mostrar, self.ventana1, self.torneo)  # Pasa la instancia del torneo
         else:
-        # Si la ventana ya está creada, solo actualiza el texto
+            # Si la ventana ya está creada, solo actualiza el texto
             self.ventana3.actualizar_texto(texto_para_mostrar)
-    
+        
         self.ventana3.show()
         self.hide()

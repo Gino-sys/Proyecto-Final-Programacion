@@ -1,9 +1,9 @@
 from controladores.ventana2_controller import Ui_MainWindow
 
 class Torneo:
-    def __init__(self):
+    def __init__(self, nombre=''):
         self.partido = [] # Lista para almacenar los partidos y sus resultados
-
+        self.nombre = nombre 
     def guardar_partido(self, equipo1, equipo2, resultado):
         """
         Guarda el resultado de un partido en la lista de partidos.
