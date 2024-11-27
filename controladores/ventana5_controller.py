@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
+from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_archivo5 import Ui_MainWindow
 from controladores.ventana6_controller import ventana6
 from clases.torneos import Torneo  # Importamos la clase Torneo
@@ -8,6 +9,8 @@ class ventana5(QMainWindow, Ui_MainWindow, Torneo):
     def __init__(self,texto="", nombres_equipos=None, ventana_anterior=None, ventana_principal=None):
         super().__init__()
         self.setupUi(self)
+        self.animar_boton()
+        self.animar_boton_2()
 
         self.nombres_equipos = nombres_equipos or []  # Lista de nombres de los equipos
         self.ventana_anterior = ventana_anterior  # Referencia a la ventana4
@@ -49,3 +52,32 @@ class ventana5(QMainWindow, Ui_MainWindow, Torneo):
         
         self.ventana6.show()
         self.hide()  # Oculta la ventana actual
+
+
+    def animar_boton(self):
+        # Crear una animación para el botón torneo_button
+        self.animation = QPropertyAnimation(self.pushButton, b"geometry")
+        self.animation.setDuration(800)  # Duración total del rebote
+        self.animation.setStartValue(self.pushButton.geometry())  # Posición inicial
+        self.animation.setEndValue(self.pushButton.geometry().adjusted(1, 7, 1, 7))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation.setLoopCount(-1)
+        self.animation.start()
+
+    def animar_boton_2(self):
+        # Crear una animación para el botón torneo_button
+        self.animation2 = QPropertyAnimation(self.pushButton_2, b"geometry")
+        self.animation2.setDuration(800)  # Duración total del rebote
+        self.animation2.setStartValue(self.pushButton_2.geometry())  # Posición inicial
+        self.animation2.setEndValue(self.pushButton_2.geometry().adjusted(1, 7, 1, 7))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation2.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation2.setLoopCount(-1)
+        self.animation2.start()    
