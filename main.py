@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> d4355f32c5f19f27d03011aa719b14fc01994607
 import time
 import sys
 from controladores.interfaz_controller import MainWindow # Importa el controlador
