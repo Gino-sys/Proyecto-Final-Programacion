@@ -1,142 +1,177 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define TEAM1_GOAL_PIN 2  // Botón para sumar goles al equipo 1
-#define TEAM2_GOAL_PIN 3  // Botón para sumar goles al equipo 2
-#define NEXT_MATCH_PIN 4  // Botón para avanzar al siguiente partido
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // Dirección del LCD (0x27) y tamaño (16x2)
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+String partidos[7][2];  // 7 partidos en total (cuartos, semifinales, final)
+int goles[7][2];        // Matriz para almacenar los goles de los 7 partidos
+int partidoActual = 0;  // Índice del partido actual
 
-String equipos[8]; // Nombres de los equipos
-int goles[2] = {0, 0}; // Goles de los equipos en el partido actual
-int partidos[7][2];    // Matriz de enfrentamientos: [partido][equipo1, equipo2]
-int partidoActual = 0; // Índice del partido actual
-bool lastTeam1State = LOW;
-bool lastTeam2State = LOW;
-bool lastNextMatchState = LOW;
+// Pines de los botones
+const int botonAvanzarPin = 2;    // Botón para avanzar entre partidos
+const int botonGolEquipo1Pin = 3; // Botón para sumar gol al equipo 1
+const int botonGolEquipo2Pin = 4; // Botón para sumar gol al equipo 2
+
+// Variables para evitar rebotes en los botones
+bool botonAvanzarPresionado = false;
+bool botonGolEquipo1Presionado = false;
+bool botonGolEquipo2Presionado = false;
 
 void setup() {
-  Serial.begin(9600);
   lcd.init();
   lcd.backlight();
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  //lcd.print("Esperando datos...");
 
-  // Configurar botones como INPUT_PULLUP
-  pinMode(TEAM1_GOAL_PIN, INPUT_PULLUP);
-  pinMode(TEAM2_GOAL_PIN, INPUT_PULLUP);
-  pinMode(NEXT_MATCH_PIN, INPUT_PULLUP);
+  Serial.begin(9600);
 
-  // Leer nombres de los equipos desde Python
-  while (Serial.available() == 0) {
-    // Esperar datos
-  }
-  String data = Serial.readStringUntil('\n');
-  parseEquipos(data);
-
-  // Configurar enfrentamientos de cuartos de final
-  for (int i = 0; i < 4; i++) {
-    partidos[i][0] = i * 2;
-    partidos[i][1] = i * 2 + 1;
-  }
-
-  // Mostrar primer partido
-  mostrarPartido();
+  // Configuración de pines de los botones
+  pinMode(botonAvanzarPin, INPUT_PULLUP);
+  pinMode(botonGolEquipo1Pin, INPUT_PULLUP);
+  pinMode(botonGolEquipo2Pin, INPUT_PULLUP);
 }
 
 void loop() {
-  // Botón para sumar goles al equipo 1
-  bool team1State = digitalRead(TEAM1_GOAL_PIN);
-  if (team1State == LOW && lastTeam1State == HIGH) {
-    goles[0]++;
-    mostrarPartido();  // Actualizar pantalla con los nuevos goles
-    delay(200); // Evitar rebotes
+  // Leer datos del puerto serie
+  if (Serial.available()) {
+    String linea = Serial.readStringUntil('\n');
+    linea.trim();
+    Serial.println("Datos recibidos: " + linea);  // Para ver los datos que recibe Arduino
+    if (linea.startsWith("partidos:")) {
+      recibirPartidos(linea.substring(9));  // Recibir los partidos y procesarlos
+      mostrarPartidoActual();
+    }
   }
-  lastTeam1State = team1State;
 
-  // Botón para sumar goles al equipo 2
-  bool team2State = digitalRead(TEAM2_GOAL_PIN);
-  if (team2State == LOW && lastTeam2State == HIGH) {
-    goles[1]++;
-    mostrarPartido();  // Actualizar pantalla con los nuevos goles
-    delay(200); // Evitar rebotes
-  }
-  lastTeam2State = team2State;
-
-  // Botón para avanzar al siguiente partido
-  bool nextMatchState = digitalRead(NEXT_MATCH_PIN);
-  if (nextMatchState == LOW && lastNextMatchState == HIGH) {
+  // Botón para avanzar entre partidos
+  if (digitalRead(botonAvanzarPin) == LOW && !botonAvanzarPresionado) {
+    botonAvanzarPresionado = true;
     avanzarPartido();
-    delay(200); // Evitar rebotes
+  } else if (digitalRead(botonAvanzarPin) == HIGH) {
+    botonAvanzarPresionado = false;
   }
-  lastNextMatchState = nextMatchState;
-}
 
-void parseEquipos(String data) {
-  char buffer[128];
-  data.toCharArray(buffer, 128);
-  char *item = strtok(buffer, ",");
-  int i = 0;
-  while (item != NULL && i < 8) {
-    equipos[i] = String(item);
-    item = strtok(NULL, ",");
-    i++;
+  // Botón para sumar gol al equipo 1
+  if (digitalRead(botonGolEquipo1Pin) == LOW && !botonGolEquipo1Presionado) {
+    botonGolEquipo1Presionado = true;
+    sumarGol(0);
+  } else if (digitalRead(botonGolEquipo1Pin) == HIGH) {
+    botonGolEquipo1Presionado = false;
+  }
+
+  // Botón para sumar gol al equipo 2
+  if (digitalRead(botonGolEquipo2Pin) == LOW && !botonGolEquipo2Presionado) {
+    botonGolEquipo2Presionado = true;
+    sumarGol(1);
+  } else if (digitalRead(botonGolEquipo2Pin) == HIGH) {
+    botonGolEquipo2Presionado = false;
   }
 }
 
-void mostrarPartido() {
-  lcd.clear();
+// Función para recibir los partidos y sus datos
+void recibirPartidos(String datos) {
+  for (int i = 0; i <= 7; i++) {  // Solo 7 partidos
+    partidos[i][0] = "";
+    partidos[i][1] = "";
+    goles[i][0] = 0;  // Reinicia los goles para el equipo 1
+    goles[i][1] = 0;  // Reinicia los goles para el equipo 2
+  }
+  partidoActual = 0;
 
-  // Primera línea: Equipo 1 y goles
-  lcd.setCursor(0, 0);
-  lcd.print(equipos[partidos[partidoActual][0]]);
-  lcd.print(":");
-  lcd.print(goles[0]);
+  int partidoIndex = 0;
+  while (datos.length() > 0 && partidoIndex < 7) {  // Solo 7 partidos
+    int comaIndex = datos.indexOf(',');
+    int puntoYComaIndex = datos.indexOf(';');
 
-  // Segunda línea: Equipo 2 y goles
-  lcd.setCursor(0, 1);
-  lcd.print(equipos[partidos[partidoActual][1]]);
-  lcd.print(":");
-  lcd.print(goles[1]);
+    if (comaIndex != -1 && puntoYComaIndex != -1) {
+      String equipo1 = datos.substring(0, comaIndex);
+      String equipo2 = datos.substring(comaIndex + 1, puntoYComaIndex);
+
+      // Verificar que los equipos no sean vacíos antes de asignarlos
+      if (equipo1.length() > 0 && equipo2.length() > 0) {
+        partidos[partidoIndex][0] = equipo1;
+        partidos[partidoIndex][1] = equipo2;
+        Serial.println("Partido recibido: " + equipo1 + " vs " + equipo2);  // Imprimir los equipos recibidos
+      }
+
+      datos = datos.substring(puntoYComaIndex + 1);
+      partidoIndex++;
+    } else {
+      break;  // Si no encontramos coma y punto y coma, salimos
+    }
+  }
+  // Mostrar los partidos después de recibir todos los datos
+  mostrarPartidoActual();
 }
 
-void avanzarPartido() {
-  // Verificar si hay empate
-  if (goles[0] == goles[1]) {
+// Función para mostrar el partido actual en el LCD
+void mostrarPartidoActual() {
+  if (partidoActual < 7) {  // Solo hasta 7 partidos
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Empate! Repetir");
+    lcd.print("Partido: ");
+    lcd.print(partidos[partidoActual][0]);
+    lcd.print(" vs ");
+    lcd.print(partidos[partidoActual][1]);
+
     lcd.setCursor(0, 1);
-    lcd.print("partido.");
-    delay(2000); // Pausa para mostrar el mensaje
-
-    // Reiniciar goles para el partido actual
-    goles[0] = 0;
-    goles[1] = 0;
-    mostrarPartido();  // Volver a mostrar el mismo partido
-    return; // No avanzamos al siguiente partido
-  }
-
-  // Si no es empate, determinar el ganador
-  int ganador = (goles[0] > goles[1]) ? partidos[partidoActual][0] : partidos[partidoActual][1];
-
-  // Avanzar a la siguiente ronda
-  if (partidoActual < 6) {
-    partidos[4 + partidoActual / 2][partidoActual % 2] = ganador;
-  }
-
-  partidoActual++;
-  if (partidoActual < 7) {
-    // Reiniciar goles antes de mostrar el próximo partido
-    goles[0] = 0;
-    goles[1] = 0;
-    mostrarPartido();
+    lcd.print("G1: ");
+    lcd.print(goles[partidoActual][0]);
+    lcd.print(" G2: ");
+    lcd.print(goles[partidoActual][1]);
   } else {
-    // Anunciar el ganador final
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Ganador: ");
-    lcd.setCursor(0, 1);
-    lcd.print(equipos[ganador]);
-    Serial.println(equipos[ganador]); // Enviar ganador a Python
+    lcd.print("Fin torneo");
+  }
+}
+
+// Función para avanzar al siguiente partido
+void avanzarPartido() {
+  if (partidoActual < 7) {  // Solo hasta 7 partidos
+    // Determinar el ganador antes de avanzar
+    determinarGanador();
+
+    partidoActual++;
+    if (partidoActual == 4) {
+      // Cuando llegamos al partido 4, mostramos semifinales
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Semifinales");
+      delay(2000);
+    } else if (partidoActual == 6) {
+      // Cuando llegamos al partido 6, mostramos la final
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Final");
+      delay(2000);
+    } else if (partidoActual >= 7) {  // Fin del torneo
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Torneo finalizado");
+    } else {
+      mostrarPartidoActual();
+    }
+  }
+}
+
+// Función para sumar un gol a un equipo
+void sumarGol(int equipo) {
+  if (partidoActual < 8) {  // Solo hasta 7 partidos
+    goles[partidoActual][equipo]++;
+    mostrarPartidoActual();
+  }
+}
+
+// Función para determinar al ganador y enviarlo al puerto serie
+void determinarGanador() {
+  if (goles[partidoActual][0] > goles[partidoActual][1]) {
+    Serial.println("ganador:" + partidos[partidoActual][0]);  // Enviar ganador con formato correcto
+  } else if (goles[partidoActual][1] > goles[partidoActual][0]) {
+    Serial.println("ganador:" + partidos[partidoActual][1]);  // Enviar ganador con formato correcto
+  } else {
+    Serial.println("Empate en el partido " + String(partidoActual + 1));
   }
 }
 
