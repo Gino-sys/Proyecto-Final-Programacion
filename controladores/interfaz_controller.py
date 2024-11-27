@@ -1,14 +1,10 @@
-
+import serial
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve, Qt
 from PyQt5.QtGui import QGuiApplication
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QPushButton, QLabel, QDialogButtonBox
-from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
-
 from interfaces.ui_interfaz import Ui_MainWindow
 from controladores.ventana2_controller import Ventana2
 from clases.torneos import Torneo  # Importar la clase Torneo
-
 
 class VentanaAyuda(QDialog):
     def __init__(self):
@@ -20,15 +16,15 @@ class VentanaAyuda(QDialog):
 
         instrucciones = """Bienvenido a la aplicación de gestión de torneos.
 
-        Paso 1: Ingrese el nombre del torneo en el campo correspondiente.
-        Paso 2: Escriba los nombres de los 8 equipos en los campos de texto.
-        Paso 3: Presione el botón para continuar y juegue su torneo.
+            Paso 1: Ingrese el nombre del torneo en el campo correspondiente.
+            Paso 2: Escriba los nombres de los 8 equipos en los campos de texto.
+            Paso 3: Presione el botón para continuar y juegue su torneo.
 
-        Después de jugar el torneo, podrá:
-        - Ver la tabla de posiciones.
-        - Filtrar por equipo y acceder a sus resultados.
+            Después de jugar el torneo, podrá:
+            - Ver la tabla de posiciones.
+            - Filtrar por equipo y acceder a sus resultados.
 
-        ¡Disfrute del torneo y que gane el mejor equipo!"""
+            ¡Disfrute del torneo y que gane el mejor equipo!"""
 
         label_instrucciones = QLabel(instrucciones)
         label_instrucciones.setWordWrap(True)  # Permite que el texto se ajuste a varias líneas
@@ -58,7 +54,6 @@ class VentanaAyuda(QDialog):
         # Mover la ventana al centro de la pantalla
         self.move(x, y)
 
-
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -72,6 +67,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Conectar botones
         self.torneo_button.clicked.connect(self.abrir)
         self.ventana2 = None
+
+        # Agregar la instancia serial para la comunicación con Arduino
+        try:
+            self.ser = serial.Serial('/dev/ttyACM0', 9600)  # Asegúrate de poner el puerto correcto
+            print("Puerto serial abierto con éxito")
+        except serial.SerialException as e:
+            print(f"Error al abrir el puerto serial: {e}")
+            self.ser = None  # Si hay un error, `ser` será `None`
+            # Mostrar un mensaje de advertencia si no se puede abrir el puerto serial
+            QMessageBox.critical(self, "Error de Comunicación", "No se pudo abrir el puerto serial. Asegúrate de que el dispositivo esté conectado.")
 
         # Botón de ayuda
         self.ayuda_button = QPushButton("Ayuda", self)
@@ -97,17 +102,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Usar una curva de animación para el efecto de rebote
         self.animation.setEasingCurve(QEasingCurve.OutBounce)
 
-        # Repetir indefinidamente
-        self.animation.setLoopCount(-1)
+        # Repetir 3 veces la animación
+        self.animation.setLoopCount(3)
         self.animation.start()
 
     def mostrar_ayuda(self):
         ventana_ayuda = VentanaAyuda()
         ventana_ayuda.exec_()
 
+    def closeEvent(self, event):
+        # Cerrar el puerto serial correctamente cuando la aplicación se cierre
+        if self.ser and self.ser.is_open:
+            self.ser.close()
+        event.accept()
 
-if __name__ == "__main__":
-    app = QApplication([])
-    window = MainWindow()
-    window.show()
-    app.exec()
+
