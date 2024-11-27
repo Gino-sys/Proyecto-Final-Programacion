@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QHBoxLayout
+from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from PyQt5.QtGui import QColor, QFont
 from PyQt5.QtCore import Qt
 import json
@@ -11,6 +12,8 @@ class ventana9(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.resize(765, 490)  # Tamaño inicial
         self.setFixedSize(self.size())
+        self.animar_boton()
+        self.animar_boton_2()
 
         self.ventana_anterior = ventana_anterior  # Guarda la referencia a la ventana anterior
         self.archivo_json = "datos/historial.json"  # Ruta al archivo JSON
@@ -19,6 +22,37 @@ class ventana9(QMainWindow, Ui_MainWindow):
         # Conecta los botones
         self.pushButton.clicked.connect(self.buscar)  # Botón "BUSCAR"
         self.pushButton_2.clicked.connect(self.regresar)  # Botón "VOLVER"
+    
+    def animar_boton(self):
+        # Crear una animación para el botón torneo_button
+        self.animation = QPropertyAnimation(self.pushButton, b"geometry")
+        self.animation.setDuration(800)  # Duración total del rebote
+        self.animation.setStartValue(self.pushButton.geometry())  # Posición inicial
+        self.animation.setEndValue(self.pushButton.geometry().adjusted(1, 7, 1, 7))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation.setLoopCount(-1)
+        self.animation.start()
+
+    def animar_boton_2(self):
+        # Crear una animación para el botón torneo_button
+        self.animation2 = QPropertyAnimation(self.pushButton_2, b"geometry")
+        self.animation2.setDuration(800)  # Duración total del rebote
+        self.animation2.setStartValue(self.pushButton_2.geometry())  # Posición inicial
+        self.animation2.setEndValue(self.pushButton_2.geometry().adjusted(1, 7, 1, 7))  # Mover ligeramente hacia abajo
+
+        # Usar una curva de animación para el efecto de rebote
+        self.animation2.setEasingCurve(QEasingCurve.OutBounce)
+
+        # Repetir indefinidamente
+        self.animation2.setLoopCount(-1)
+        self.animation2.start()    
+
+
+
 
     def cargar_datos_json(self):
         """Carga los datos del archivo JSON."""

@@ -28,13 +28,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.hide()
 
     def animar_boton(self):
-        animation = QPropertyAnimation(self.torneo_button, b"geometry")
-        animation.setDuration(800)
-        animation.setStartValue(self.torneo_button.geometry())
-        animation.setEndValue(self.torneo_button.geometry().adjusted(0, 6, 0, 6))
-        animation.setEasingCurve(QEasingCurve.OutBounce)
-        animation.start()
-
+        self.animation = QPropertyAnimation(self.torneo_button, b"geometry")
+        self.animation.setDuration(800)
+        self.animation.setStartValue(self.torneo_button.geometry())
+        self.animation.setEndValue(self.torneo_button.geometry().adjusted(0, 6, 0, 6))
+        self.animation.setEasingCurve(QEasingCurve.OutBounce)
+        self.animation.setLoopCount(-1)
+        self.animation.start()
 
 
 if __name__ == "__main__":

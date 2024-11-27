@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'archivo4ZGAjzd.ui'
+## Form generated from reading UI file 'archivo4ahrovN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(684, 509)
+        MainWindow.resize(672, 497)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.label = QLabel(self.centralwidget)
@@ -52,7 +52,8 @@ class Ui_MainWindow(object):
         self.lineEdit_4.setGeometry(QRect(130, 310, 201, 31))
         self.lineEdit_5 = QLineEdit(self.centralwidget)
         self.lineEdit_5.setObjectName(u"lineEdit_5")
-        self.lineEdit_5.setGeometry(QRect(480, 180, 191, 31))
+        self.lineEdit_5.setGeometry(QRect(480, 190, 191, 31))
+        self.lineEdit_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.lineEdit_6 = QLineEdit(self.centralwidget)
         self.lineEdit_6.setObjectName(u"lineEdit_6")
         self.lineEdit_6.setGeometry(QRect(480, 230, 191, 31))
@@ -61,7 +62,7 @@ class Ui_MainWindow(object):
         self.lineEdit_7.setGeometry(QRect(480, 270, 191, 31))
         self.lineEdit_8 = QLineEdit(self.centralwidget)
         self.lineEdit_8.setObjectName(u"lineEdit_8")
-        self.lineEdit_8.setGeometry(QRect(480, 310, 181, 31))
+        self.lineEdit_8.setGeometry(QRect(480, 310, 191, 31))
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(220, 380, 261, 51))
@@ -89,7 +90,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 684, 21))
+        self.menubar.setGeometry(QRect(0, 0, 672, 21))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
