@@ -41,7 +41,6 @@ class ventana6(QMainWindow, Ui_MainWindow):
             f"{self.nombres_equipos[6]},{self.nombres_equipos[7]}"   # Partido 4
         ]
 
-        
         # Enviar los partidos al Arduino
         if self.ventana1.ser and self.ventana1.ser.is_open:
             # Enviar la cadena de partidos con el formato adecuado
@@ -51,12 +50,8 @@ class ventana6(QMainWindow, Ui_MainWindow):
         else:
             print("Error: La conexión serial no está abierta.")
 
-        print(f"Comando enviado: {comando}")
-
         # Pasar los partidos a la ventana 7
         if self.ventana7 is None:
             self.ventana7 = Ventana7(self.nombres_equipos, self.ventana1, partidos)
         self.ventana7.show()
         self.hide()
-
-

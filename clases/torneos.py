@@ -1,56 +1,58 @@
-import json
-
 class Torneo:
-    def __init__(self, nombre=''):
-        self.partidos = []  # Lista para almacenar los partidos y sus resultados
-        self.nombre = nombre 
+    def __init__(self, nombre):
+        self.nombre = nombre
+        self.partidos = []  # Lista de partidos, donde cada partido es un diccionario
 
-    def guardar_partido(self, equipo1, equipo2, resultado):
-        """
-        Guarda el resultado de un partido en la lista de partidos.
-        :param equipo1: Nombre del equipo 1.
-        :param equipo2: Nombre del equipo 2.
-        :param resultado: Resultado del partido (por ejemplo, "3-2").
-        """
-        if not equipo1 or not equipo2 or not resultado:
-            raise ValueError("Los datos del partido no pueden estar vacíos.")
-
+    def guardar_partido(self, equipo1, equipo2, resultado="0-0"):
+        """Guarda un partido con su resultado (goles)"""
         partido = {
             "equipo1": equipo1,
             "equipo2": equipo2,
-            "resultado": resultado
+            "resultado": resultado  # Guardar el marcador de goles
         }
         self.partidos.append(partido)
 
-    def obtener_partidos(self):
-        """
-        Devuelve la lista de todos los partidos registrados.
-        :return: Lista de diccionarios con los datos de los partidos.
-        """
+    def guardar_json(self, ruta):
+        """Guarda los partidos en un archivo JSON"""
+        try:
+            with open(ruta, "w") as archivo:
+                json.dump(self.partidos, archivo, indent=4, ensure_ascii=False)
+            print(f"Datos guardados correctamente en {ruta}")
+        except Exception as e:
+            print(f"Error al guardar el archivo JSON: {e}")
+
+    def cargar_json(self, ruta):
+        """Carga los datos de un archivo JSON"""
+        try:
+            with open(ruta, "r") as archivo:
+                self.partidos = json.load(archivo)
+            print(f"Datos cargados correctamente desde {ruta}")
+        except Exception as e:
+            print(f"Error al cargar el archivo JSON: {e}")
+    
+    def obtener_resultados(self):
+        """Devuelve los resultados de los partidos"""
         return self.partidos
 
-    def guardar_json(self, archivo_json):
-        """
-        Guarda los partidos en un archivo JSON.
-        :param archivo_json: Ruta del archivo JSON donde se guardarán los partidos.
-        """
-        with open(archivo_json, 'w', encoding='utf-8') as archivo:
-            json.dump(self.partidos, archivo, ensure_ascii=False, indent=4)
+    def actualizar_resultado(self, equipo1, equipo2, goles_equipo1, goles_equipo2):
+        """Actualiza el resultado de un partido dado con los goles"""
+        resultado = f"{goles_equipo1}-{goles_equipo2}"
 
-    def cargar_json(self, archivo_json):
-        """
-        Carga los partidos desde un archivo JSON.
-        :param archivo_json: Ruta del archivo JSON desde donde se cargarán los partidos.
-        """
-        with open(archivo_json, 'r', encoding='utf-8') as archivo:
-            self.partidos = json.load(archivo)
-
-    def __str__(self):
-        """
-        Representación en texto del torneo, incluyendo su nombre y los partidos registrados.
-        :return: Cadena con la información del torneo.
-        """
-        info_torneo = f"Torneo: {self.nombre}\nPartidos:"
         for partido in self.partidos:
-            info_torneo += f"\n{partido['equipo1']} vs {partido['equipo2']} - Resultado: {partido['resultado']}"
-        return info_torneo
+            if (partido["equipo1"] == equipo1 and partido["equipo2"] == equipo2) or \
+               (partido["equipo1"] == equipo2 and partido["equipo2"] == equipo1):
+                partido["resultado"] = resultado
+                print(f"Resultado actualizado: {equipo1} vs {equipo2} = {resultado}")
+                break
+        else:
+            print("Partido no encontrado para actualizar.")
+
+    def reiniciar_json(self, ruta):
+        """Reinicia el archivo JSON, borrando todos los datos del torneo"""
+        try:
+            # Sobrescribir el archivo JSON con una lista vacía
+            with open(ruta, "w") as archivo:
+                json.dump([], archivo, indent=4, ensure_ascii=False)
+            print("El archivo JSON ha sido reiniciado.")
+        except Exception as e:
+            print(f"Error al reiniciar el archivo JSON: {e}")

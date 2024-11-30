@@ -1,0 +1,7 @@
+{
+    "partidos": [
+      {"equipo1": "Equipo A", "equipo2": "Equipo B", "resultado": ""},
+      {"equipo1": "Equipo C", "equipo2": "Equipo D", "resultado": ""}
+      
+    ]
+  }

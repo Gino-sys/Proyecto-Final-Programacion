@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.QtCore import QTimer
 from interfaces.ui_archivo7 import Ui_MainWindow
 from controladores.ventana8_controller import Ventana8
+from clases.torneos import Torneo  # Importamos la clase Torneo
+import json
 
 class Ventana7(QMainWindow, Ui_MainWindow):
     def __init__(self, nombres_equipos, ventana_principal=None, partidos=None):
@@ -16,7 +18,8 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         # Si no se pasan partidos, por defecto está vacío
         self.partidos = partidos if partidos is not None else []
 
-        print(f"Partidos recibidos en la ventana 7: {self.partidos}")
+        # Crear una instancia del Torneo
+        self.torneo = Torneo("Torneo de Fútbol")  # Asignamos un nombre al torneo
 
         # Mostrar equipos en los labels 2 a 9
         self.mostrar_equipos()
@@ -39,6 +42,49 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         for i, nombre in enumerate(self.nombres_equipos):
             if i < len(labels):
                 labels[i].setText(nombre)
+
+        # Guardar los partidos en el JSON
+        self.guardar_partidos()
+
+    def guardar_partidos(self):
+        """Guarda los partidos en el archivo JSON"""
+        if len(self.nombres_equipos) >= 4:
+            # Crear partidos basados en los equipos
+            partidos = [
+                (self.nombres_equipos[0], self.nombres_equipos[1]),
+                (self.nombres_equipos[2], self.nombres_equipos[3]),
+            ]
+            for partido in partidos:
+                self.torneo.guardar_partido(partido[0], partido[1], "0-0")  # Inicializa con marcador "0-0"
+
+            # Guardamos los partidos en el archivo JSON
+            self.torneo.guardar_json("torneo.json")
+            print("Partidos guardados en torneo.json")
+
+        # Además, actualizamos el archivo historial.json
+        self.actualizar_historial(partidos)
+
+    def actualizar_historial(self, partidos):
+        """Actualiza el historial de partidos en el archivo JSON"""
+        try:
+            # Intentamos cargar el archivo actual para agregar los nuevos partidos
+            with open("datos/historial.json", "r") as archivo:
+                historial = json.load(archivo)
+        except (FileNotFoundError, json.JSONDecodeError):
+            historial = []  # Si no existe el archivo, o hay error, creamos una lista vacía
+
+        # Añadir los nuevos partidos al historial
+        for partido in partidos:
+            historial.append({
+                "equipo": partido[0],
+                "partido": f"{partido[0]} vs {partido[1]}",
+                "resultado": "0-0"  # Resultado inicial
+            })
+
+        # Guardar el historial actualizado en el archivo JSON
+        with open("datos/historial.json", "w") as archivo:
+            json.dump(historial, archivo, indent=4, ensure_ascii=False)
+            print("Historial actualizado en historial.json")
 
     def listen_for_data(self):
         """Escucha los datos enviados desde Arduino periódicamente"""
@@ -67,10 +113,12 @@ class Ventana7(QMainWindow, Ui_MainWindow):
 
     def siguiente_pag(self):
         """Método para avanzar a la ventana 8"""
+        # Cargar los partidos desde el archivo JSON
+        self.torneo.cargar_json("torneo.json")
+        
+        # Pasamos los equipos y partidos a la ventana 8
         texto = " - ".join(self.ganadores)  # Combina los ganadores en un texto
         self.ventana8 = Ventana8(self.ventana_principal, texto)
-        self.ventana8.set_equipos(self.ganadores)  # Pasa los ganadores a la ventana 8
+        self.ventana8.set_equipos(self.nombres_equipos)  # Enviamos los equipos a la ventana 8
         self.ventana8.show()
         self.hide()
-
-

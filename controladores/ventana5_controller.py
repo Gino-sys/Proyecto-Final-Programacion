@@ -47,8 +47,8 @@ class ventana5(QMainWindow, Ui_MainWindow, Torneo):
         if self.ventana6 is not None:
             self.ventana6.actualizar_equipos(self.nombres_equipos)
         else:
-            # Crea ventana6 con los datos actuales
-            self.ventana6 = ventana6(self.nombres_equipos, self.ventana_principal, self.texto_torneo)
+          self.ventana6 = ventana6(self.nombres_equipos, self.ventana_principal, self.texto_torneo)
+
         
         self.ventana6.show()
         self.hide()  # Oculta la ventana actual

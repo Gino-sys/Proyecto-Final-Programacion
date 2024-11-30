@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from interfaces.ui_archivo8 import Ui_MainWindow
 from controladores.ventana9_controller import ventana9
-from clases.torneos import Torneo
 
 class Ventana8(QMainWindow, Ui_MainWindow):
     def __init__(self, ventana_principal=None, texto=""):
@@ -10,7 +9,6 @@ class Ventana8(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.resize(750, 485)
         self.setFixedSize(self.size())
-        self.torneo = Torneo()  # Asigna un nombre inicial
         self.animar_boton()
 
         # Este texto es el que recibe de la ventana 7
@@ -29,17 +27,13 @@ class Ventana8(QMainWindow, Ui_MainWindow):
         self.equipos = equipos
         print(f"Equipos recibidos en ventana 8: {self.equipos}")
 
-        # Actualiza los labels disponibles
-        labels = [self.label_3, self.label_4, self.label_5]  # Lista de labels existentes
+        labels = [self.label_3, self.label_4, self.label_5]
         for i, equipo in enumerate(self.equipos):
-            if i < len(labels):  # Evita errores si hay más equipos que labels
+            if i < len(labels):
                 labels[i].setText(equipo)
-            else:
-                print(f"Advertencia: Más equipos que labels. Equipo '{equipo}' no asignado.")
-
 
     def next(self):
-        """Método para avanzar a la ventana9."""
+        """Método para avanzar a la ventana 9."""
         if self.ventana9 is None:
             self.ventana9 = ventana9(self)
         self.ventana9.show()
@@ -69,5 +63,3 @@ class Ventana8(QMainWindow, Ui_MainWindow):
         self.animation.setEasingCurve(QEasingCurve.OutBounce)
         self.animation.setLoopCount(-1)
         self.animation.start()
-
-

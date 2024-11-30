@@ -22,7 +22,7 @@ void setup() {
   lcd.backlight();
   lcd.clear();
   lcd.setCursor(0, 0);
-  //lcd.print("Esperando datos...");
+  lcd.print("Esperando datos...");
 
   Serial.begin(9600);
 
@@ -71,7 +71,7 @@ void loop() {
 
 // Función para recibir los partidos y sus datos
 void recibirPartidos(String datos) {
-  for (int i = 0; i <= 7; i++) {  // Solo 7 partidos
+  for (int i = 0; i < 7; i++) {  // Solo 7 partidos
     partidos[i][0] = "";
     partidos[i][1] = "";
     goles[i][0] = 0;  // Reinicia los goles para el equipo 1
@@ -158,7 +158,7 @@ void avanzarPartido() {
 
 // Función para sumar un gol a un equipo
 void sumarGol(int equipo) {
-  if (partidoActual < 8) {  // Solo hasta 7 partidos
+  if (partidoActual < 7) {  // Solo hasta 7 partidos
     goles[partidoActual][equipo]++;
     mostrarPartidoActual();
   }
@@ -167,11 +167,14 @@ void sumarGol(int equipo) {
 // Función para determinar al ganador y enviarlo al puerto serie
 void determinarGanador() {
   if (goles[partidoActual][0] > goles[partidoActual][1]) {
-    Serial.println("ganador:" + partidos[partidoActual][0]);  // Enviar ganador con formato correcto
+    // Enviar el resultado completo al puerto serie
+    Serial.println("resultado:" + partidos[partidoActual][0] + " " + String(goles[partidoActual][0]) + "-" + String(goles[partidoActual][1]) + " " + partidos[partidoActual][1]);
   } else if (goles[partidoActual][1] > goles[partidoActual][0]) {
-    Serial.println("ganador:" + partidos[partidoActual][1]);  // Enviar ganador con formato correcto
+    // Enviar el resultado completo al puerto serie
+    Serial.println("resultado:" + partidos[partidoActual][1] + " " + String(goles[partidoActual][1]) + "-" + String(goles[partidoActual][0]) + " " + partidos[partidoActual][0]);
   } else {
-    Serial.println("Empate en el partido " + String(partidoActual + 1));
+    // Enviar el empate
+    Serial.println("resultado:Empate " + partidos[partidoActual][0] + " " + String(goles[partidoActual][0]) + "-" + String(goles[partidoActual][1]) + " " + partidos[partidoActual][1]);
   }
 }
 

@@ -1,6 +1,5 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem, QLabel, QWidget, QHBoxLayout
+from PyQt5.QtWidgets import QMainWindow, QListWidgetItem, QLabel, QWidget, QHBoxLayout
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
-from PyQt5.QtGui import QColor, QFont
 from PyQt5.QtCore import Qt
 import json
 from interfaces.ui_archivo9 import Ui_MainWindow
@@ -51,9 +50,6 @@ class ventana9(QMainWindow, Ui_MainWindow):
         self.animation2.setLoopCount(-1)
         self.animation2.start()    
 
-
-
-
     def cargar_datos_json(self):
         """Carga los datos del archivo JSON."""
         try:
@@ -91,6 +87,7 @@ class ventana9(QMainWindow, Ui_MainWindow):
 
         # Etiqueta para el nombre del partido
         label_partido = QLabel(partido, self)
+        label_partido.setText(partido)  # Corregir aquí el error y establecer el texto
         label_partido.setFont(QFont("Cooper Black", 14))  # Cambiado a Cooper Black
         label_partido.setStyleSheet("color: #2C3E50;")
         layout_item.addWidget(label_partido, alignment=Qt.AlignLeft)

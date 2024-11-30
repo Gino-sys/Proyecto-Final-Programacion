@@ -6,75 +6,28 @@ from interfaces.ui_interfaz import Ui_MainWindow
 from controladores.ventana2_controller import Ventana2
 from clases.torneos import Torneo  # Importar la clase Torneo
 
-class VentanaAyuda(QDialog):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle("Instrucciones")
-        self.setFixedSize(400, 300)  # Tamaño fijo de la ventana
-        layout = QVBoxLayout()
-
-        instrucciones = """Bienvenido a la aplicación de gestión de torneos.
-
-            Paso 1: Ingrese el nombre del torneo en el campo correspondiente.
-            Paso 2: Escriba los nombres de los 8 equipos en los campos de texto.
-            Paso 3: Presione el botón para continuar y juegue su torneo.
-
-            Después de jugar el torneo, podrá:
-            - Ver la tabla de posiciones.
-            - Filtrar por equipo y acceder a sus resultados.
-
-            ¡Disfrute del torneo y que gane el mejor equipo!"""
-
-        label_instrucciones = QLabel(instrucciones)
-        label_instrucciones.setWordWrap(True)  # Permite que el texto se ajuste a varias líneas
-        layout.addWidget(label_instrucciones)
-
-        # Botón de cerrar
-        boton_cerrar = QDialogButtonBox(QDialogButtonBox.Ok)
-        boton_cerrar.accepted.connect(self.accept)
-        layout.addWidget(boton_cerrar)
-
-        self.setLayout(layout)
-
-        # Centrar la ventana de ayuda en la pantalla
-        self.centrar_ventana()
-
-    def centrar_ventana(self):
-        # Obtener el tamaño de la pantalla
-        pantalla = QGuiApplication.primaryScreen().geometry()
-
-        # Obtener el tamaño de la ventana
-        size = self.geometry()
-
-        # Calcular las coordenadas para centrar la ventana
-        x = (pantalla.width() - size.width()) // 2
-        y = (pantalla.height() - size.height()) // 2
-
-        # Mover la ventana al centro de la pantalla
-        self.move(x, y)
-
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.resize(790, 460)  # Tamaño inicial
-        self.setFixedSize(self.size())
+        self.setFixedSize(790, 460)
 
         # Crear una instancia de la clase Torneo
-        self.torneo = Torneo()  # Asigna un nombre inicial
+        self.torneo = Torneo("Torneo de Fútbol")  # Nombre del torneo al crear la instancia
 
         # Conectar botones
         self.torneo_button.clicked.connect(self.abrir)
         self.ventana2 = None
 
+
+
         # Agregar la instancia serial para la comunicación con Arduino
         try:
-            self.ser = serial.Serial('/dev/ttyACM5', 9600)  # Asegúrate de poner el puerto correcto
+            self.ser = serial.Serial('/dev/ttyACM0', 9600)  # Asegúrate de poner el puerto correcto
             print("Puerto serial abierto con éxito")
         except serial.SerialException as e:
             print(f"Error al abrir el puerto serial: {e}")
-            self.ser = None  # Si hay un error, `ser` será `None`
+            self.ser = None  # Si hay un error, `ser` será `None` 
             # Mostrar un mensaje de advertencia si no se puede abrir el puerto serial
             QMessageBox.critical(self, "Error de Comunicación", "No se pudo abrir el puerto serial. Asegúrate de que el dispositivo esté conectado.")
 
@@ -115,5 +68,3 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if self.ser and self.ser.is_open:
             self.ser.close()
         event.accept()
-
-
