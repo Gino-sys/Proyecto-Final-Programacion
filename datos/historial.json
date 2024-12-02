@@ -1,7 +1,22 @@
-{
-    "partidos": [
-      {"equipo1": "Equipo A", "equipo2": "Equipo B", "resultado": ""},
-      {"equipo1": "Equipo C", "equipo2": "Equipo D", "resultado": ""}
-      
-    ]
-  }
+[
+    {
+        "equipo1": "a",
+        "equipo2": "b",
+        "resultado": "0-0"
+    },
+    {
+        "equipo1": "c",
+        "equipo2": "d",
+        "resultado": "3-1"
+    },
+    {
+        "equipo1": "e",
+        "equipo2": "f",
+        "resultado": "2-0"
+    },
+    {
+        "equipo1": "Empate",
+        "equipo2": "0-0",
+        "resultado": "a"
+    }
+]

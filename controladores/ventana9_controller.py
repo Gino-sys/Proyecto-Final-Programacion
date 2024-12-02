@@ -1,8 +1,10 @@
 from PyQt5.QtWidgets import QMainWindow, QListWidgetItem, QLabel, QWidget, QHBoxLayout
 from PyQt5.QtCore import QPropertyAnimation, QRect, QEasingCurve
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont  # Import necesario para fuentes
 import json
 from interfaces.ui_archivo9 import Ui_MainWindow
+
 
 
 class ventana9(QMainWindow, Ui_MainWindow):

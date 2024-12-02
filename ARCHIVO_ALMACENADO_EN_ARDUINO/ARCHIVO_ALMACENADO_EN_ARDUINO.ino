@@ -3,9 +3,9 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // Dirección del LCD (0x27) y tamaño (16x2)
 
-String partidos[7][2];  // 7 partidos en total (cuartos, semifinales, final)
-int goles[7][2];        // Matriz para almacenar los goles de los 7 partidos
-int partidoActual = 0;  // Índice del partido actual
+char partidos[7][2][17];  // 7 partidos, cada uno con dos equipos de hasta 16 caracteres
+int goles[7][2];           // Matriz para almacenar los goles de los 7 partidos
+int partidoActual = 0;     // Índice del partido actual
 
 // Pines de los botones
 const int botonAvanzarPin = 2;    // Botón para avanzar entre partidos
@@ -71,16 +71,16 @@ void loop() {
 
 // Función para recibir los partidos y sus datos
 void recibirPartidos(String datos) {
-  for (int i = 0; i < 7; i++) {  // Solo 7 partidos
-    partidos[i][0] = "";
-    partidos[i][1] = "";
-    goles[i][0] = 0;  // Reinicia los goles para el equipo 1
-    goles[i][1] = 0;  // Reinicia los goles para el equipo 2
+  for (int i = 0; i < 7; i++) {  // Inicializa
+    memset(partidos[i][0], '\0', sizeof(partidos[i][0]));
+    memset(partidos[i][1], '\0', sizeof(partidos[i][1]));
+    goles[i][0] = 0;
+    goles[i][1] = 0;
   }
   partidoActual = 0;
 
   int partidoIndex = 0;
-  while (datos.length() > 0 && partidoIndex < 7) {  // Solo 7 partidos
+  while (datos.length() > 0 && partidoIndex < 7) {
     int comaIndex = datos.indexOf(',');
     int puntoYComaIndex = datos.indexOf(';');
 
@@ -88,20 +88,19 @@ void recibirPartidos(String datos) {
       String equipo1 = datos.substring(0, comaIndex);
       String equipo2 = datos.substring(comaIndex + 1, puntoYComaIndex);
 
-      // Verificar que los equipos no sean vacíos antes de asignarlos
-      if (equipo1.length() > 0 && equipo2.length() > 0) {
-        partidos[partidoIndex][0] = equipo1;
-        partidos[partidoIndex][1] = equipo2;
-        Serial.println("Partido recibido: " + equipo1 + " vs " + equipo2);  // Imprimir los equipos recibidos
+      // Verificar que no exceda el límite de caracteres
+      if (equipo1.length() <= 16 && equipo2.length() <= 16) {
+        equipo1.toCharArray(partidos[partidoIndex][0], 17);
+        equipo2.toCharArray(partidos[partidoIndex][1], 17);
+        Serial.println("Partido recibido: " + String(partidos[partidoIndex][0]) + " vs " + String(partidos[partidoIndex][1]));
       }
 
       datos = datos.substring(puntoYComaIndex + 1);
       partidoIndex++;
     } else {
-      break;  // Si no encontramos coma y punto y coma, salimos
+      break;
     }
   }
-  // Mostrar los partidos después de recibir todos los datos
   mostrarPartidoActual();
 }
 
@@ -168,14 +167,12 @@ void sumarGol(int equipo) {
 void determinarGanador() {
   if (goles[partidoActual][0] > goles[partidoActual][1]) {
     // Enviar el resultado completo al puerto serie
-    Serial.println("resultado:" + partidos[partidoActual][0] + " " + String(goles[partidoActual][0]) + "-" + String(goles[partidoActual][1]) + " " + partidos[partidoActual][1]);
+    Serial.println("resultado:" + String(partidos[partidoActual][0]) + " " + String(goles[partidoActual][0]) + "-" + String(goles[partidoActual][1]) + " " + String(partidos[partidoActual][1]));
   } else if (goles[partidoActual][1] > goles[partidoActual][0]) {
     // Enviar el resultado completo al puerto serie
-    Serial.println("resultado:" + partidos[partidoActual][1] + " " + String(goles[partidoActual][1]) + "-" + String(goles[partidoActual][0]) + " " + partidos[partidoActual][0]);
+    Serial.println("resultado:" + String(partidos[partidoActual][1]) + " " + String(goles[partidoActual][1]) + "-" + String(goles[partidoActual][0]) + " " + String(partidos[partidoActual][0]));
   } else {
     // Enviar el empate
-    Serial.println("resultado:Empate " + partidos[partidoActual][0] + " " + String(goles[partidoActual][0]) + "-" + String(goles[partidoActual][1]) + " " + partidos[partidoActual][1]);
+    Serial.println("resultado:Empate " + String(partidos[partidoActual][0]) + " " + String(goles[partidoActual][0]) + "-" + String(goles[partidoActual][1]) + " " + String(partidos[partidoActual][1]));
   }
 }
-
-

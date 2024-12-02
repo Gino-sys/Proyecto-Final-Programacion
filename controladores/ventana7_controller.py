@@ -24,6 +24,9 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         # Mostrar equipos en los labels 2 a 9
         self.mostrar_equipos()
 
+        # Guardar los partidos en el JSON
+        self.guardar_partidos()  # <-- Ahora está dentro del método __init__
+
         # Conexión del botón "siguiente"
         self.pushButton.clicked.connect(self.siguiente_pag)
 
@@ -38,62 +41,132 @@ class Ventana7(QMainWindow, Ui_MainWindow):
             self.label_2, self.label_3, self.label_4, self.label_5,
             self.label_6, self.label_7, self.label_8, self.label_9
         ]
-        
+    
         for i, nombre in enumerate(self.nombres_equipos):
             if i < len(labels):
                 labels[i].setText(nombre)
 
-        # Guardar los partidos en el JSON
-        self.guardar_partidos()
-
     def guardar_partidos(self):
         """Guarda los partidos en el archivo JSON"""
         if len(self.nombres_equipos) >= 4:
-            # Crear partidos basados en los equipos
-            partidos = [
-                (self.nombres_equipos[0], self.nombres_equipos[1]),
-                (self.nombres_equipos[2], self.nombres_equipos[3]),
+            nuevos_partidos = [
+                {"equipo1": self.nombres_equipos[0], "equipo2": self.nombres_equipos[1], "resultado": "0-0"},
+                {"equipo1": self.nombres_equipos[2], "equipo2": self.nombres_equipos[3], "resultado": "0-0"},
             ]
-            for partido in partidos:
-                self.torneo.guardar_partido(partido[0], partido[1], "0-0")  # Inicializa con marcador "0-0"
 
-            # Guardamos los partidos en el archivo JSON
+            # Validar que self.partidos contiene diccionarios, si no, inicializar correctamente
+            if not isinstance(self.partidos, list) or any(not isinstance(p, dict) for p in self.partidos):
+                print("Corrigiendo formato de 'self.partidos', inicializando como lista de diccionarios vacía.")
+                self.partidos = []
+
+            # Evitar duplicados al agregar los nuevos partidos
+            for nuevo_partido in nuevos_partidos:
+                if not any(
+                    isinstance(p, dict) and  # Validar que p sea un diccionario
+                    p.get("equipo1") == nuevo_partido["equipo1"] and 
+                    p.get("equipo2") == nuevo_partido["equipo2"]
+                    for p in self.partidos
+                ):
+                    self.partidos.append(nuevo_partido)
+
+            # Guardar partidos en el torneo y en JSON
+            for partido in nuevos_partidos:
+                self.torneo.guardar_partido(partido["equipo1"], partido["equipo2"], partido["resultado"])
+
             self.torneo.guardar_json("torneo.json")
             print("Partidos guardados en torneo.json")
 
-        # Además, actualizamos el archivo historial.json
-        self.actualizar_historial(partidos)
+            # Actualizar el historial
+            self.actualizar_historial(self.partidos)
 
-    def actualizar_historial(self, partidos):
-        """Actualiza el historial de partidos en el archivo JSON"""
-        try:
-            # Intentamos cargar el archivo actual para agregar los nuevos partidos
-            with open("datos/historial.json", "r") as archivo:
-                historial = json.load(archivo)
-        except (FileNotFoundError, json.JSONDecodeError):
-            historial = []  # Si no existe el archivo, o hay error, creamos una lista vacía
-
-        # Añadir los nuevos partidos al historial
-        for partido in partidos:
-            historial.append({
-                "equipo": partido[0],
-                "partido": f"{partido[0]} vs {partido[1]}",
-                "resultado": "0-0"  # Resultado inicial
-            })
-
-        # Guardar el historial actualizado en el archivo JSON
-        with open("datos/historial.json", "w") as archivo:
-            json.dump(historial, archivo, indent=4, ensure_ascii=False)
-            print("Historial actualizado en historial.json")
 
     def listen_for_data(self):
         """Escucha los datos enviados desde Arduino periódicamente"""
         if self.ser and self.ser.is_open:
             while self.ser.in_waiting > 0:  # Mientras haya datos disponibles
                 linea = self.ser.readline().decode('utf-8').strip()
-                if linea.startswith("ganador:"):
-                    ganador = linea.split(":")[1]
-                    self.registrar_ganador(ganador)
+                print(f"Dato recibido: {linea}")  # Debug: mostrar lo que llega desde Arduino
+                if linea.startswith("resultado:"):
+                    # Procesar el resultado enviado por Arduino
+                    self.procesar_resultado(linea)
+
+    def procesar_resultado(self, linea):
+        """Procesa el resultado del partido y lo guarda en el archivo JSON"""
+        try:
+            # Validar formato de la línea
+            if not linea.startswith("resultado:"):
+                print(f"Línea no válida: {linea}")
+                return
+        
+            # Separar los datos después de "resultado:"
+            partes = linea[len("resultado:"):].strip().split(" ")
+            if len(partes) < 3:
+                print(f"Formato inválido en la línea: {linea}")
+                return
+        
+            equipo1, marcador, equipo2 = partes[0], partes[1], partes[2]
+
+            # Crear un nuevo partido
+            nuevo_partido = {"equipo1": equipo1, "equipo2": equipo2, "resultado": marcador}
+
+            # Buscar si el partido ya existe para actualizarlo
+            partido_actualizado = False
+            for partido in self.partidos:
+                if partido["equipo1"] == equipo1 and partido["equipo2"] == equipo2:
+                    partido["resultado"] = marcador
+                    partido_actualizado = True
+                    break
+
+            if not partido_actualizado:
+                # Si el partido no existe, añadirlo
+                self.partidos.append(nuevo_partido)
+                print(f"Nuevo partido añadido: {nuevo_partido}")
+
+            # Actualizar el historial y guardar en JSON
+            self.actualizar_historial(self.partidos)
+        except Exception as e:
+            print(f"Error al procesar el resultado: {e}")
+
+    def actualizar_historial(self, partidos):
+        """Actualiza el historial de partidos en el archivo JSON"""
+        try:
+            # Cargar el historial existente
+            try:
+                with open("datos/historial.json", "r") as archivo:
+                    historial = json.load(archivo)
+            except (FileNotFoundError, json.JSONDecodeError):
+                historial = []
+
+            # Validar que el historial sea una lista de diccionarios
+            if not isinstance(historial, list) or any(not isinstance(h, dict) for h in historial):
+                print("El historial no está en el formato esperado. Se inicializará como una lista vacía.")
+                historial = []
+
+            # Actualizar o agregar nuevos partidos
+            for partido in partidos:
+                if not isinstance(partido, dict):
+                    print(f"Partido inválido ignorado: {partido}")
+                    continue
+
+                existe = False
+                for h_partido in historial:
+                    if (
+                        h_partido.get("equipo1") == partido["equipo1"] and 
+                        h_partido.get("equipo2") == partido["equipo2"]
+                    ):
+                        h_partido["resultado"] = partido["resultado"]
+                        existe = True
+                        break
+                if not existe:
+                    historial.append(partido)
+
+            # Guardar el historial actualizado
+            with open("datos/historial.json", "w") as archivo:
+                json.dump(historial, archivo, indent=4, ensure_ascii=False)
+                print("Historial actualizado en historial.json")
+        except Exception as e:
+            print(f"Error al actualizar el historial: {e}")
+
 
     def registrar_ganador(self, ganador):
         """Registra el ganador y actualiza la interfaz"""
@@ -122,3 +195,4 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         self.ventana8.set_equipos(self.nombres_equipos)  # Enviamos los equipos a la ventana 8
         self.ventana8.show()
         self.hide()
+

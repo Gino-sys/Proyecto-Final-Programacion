@@ -38,7 +38,7 @@ class ventana4(QMainWindow, Ui_MainWindow):
 
         # Configuración del puerto serial (ajusta el puerto)
         try:
-            self.ser = serial.Serial('/dev/ttyACM0', 9600)  # Reemplaza con tu puerto
+            self.ser = serial.Serial('/dev/ttyACM1', 9600)  # Reemplaza con tu puerto
         except Exception as e:
             QMessageBox.critical(self, "Error de conexión", f"No se pudo abrir el puerto serial: {e}")
             self.ser = None
