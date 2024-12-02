@@ -10,6 +10,7 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.nombres_equipos = nombres_equipos  # Recibe los nombres de los equipos
+        print(f"Ventana7 inicializada con los equipos: {self.nombres_equipos}")  # Depuración
         self.ventana_principal = ventana_principal
         self.ganadores = []  # Lista para almacenar ganadores
         self.partidos_jugados = 0  # Contador de partidos jugados
@@ -41,9 +42,13 @@ class Ventana7(QMainWindow, Ui_MainWindow):
             self.label_2, self.label_3, self.label_4, self.label_5,
             self.label_6, self.label_7, self.label_8, self.label_9
         ]
-    
+
+        # Verifica si los nombres de equipos se pasaron correctamente
+        print(f"Equipos recibidos para mostrar: {self.nombres_equipos}")  # Depuración
+        
         for i, nombre in enumerate(self.nombres_equipos):
             if i < len(labels):
+                print(f"Actualizando label {i+2} con el nombre: {nombre}")  # Depuración
                 labels[i].setText(nombre)
 
     def guardar_partidos(self):
@@ -78,7 +83,6 @@ class Ventana7(QMainWindow, Ui_MainWindow):
 
             # Actualizar el historial
             self.actualizar_historial(self.partidos)
-
 
     def listen_for_data(self):
         """Escucha los datos enviados desde Arduino periódicamente"""
@@ -124,8 +128,37 @@ class Ventana7(QMainWindow, Ui_MainWindow):
 
             # Actualizar el historial y guardar en JSON
             self.actualizar_historial(self.partidos)
+            
+            # Determinar el ganador del partido
+            ganador = self.obtener_ganador(marcador, equipo1, equipo2)
+            if ganador:
+                self.registrar_ganador(ganador)
         except Exception as e:
             print(f"Error al procesar el resultado: {e}")
+
+    def obtener_ganador(self, marcador, equipo1, equipo2):
+        """Determina el ganador a partir del marcador"""
+        goles_equipo1, goles_equipo2 = marcador.split("-")
+        if int(goles_equipo1) > int(goles_equipo2):
+            return equipo1
+        elif int(goles_equipo1) < int(goles_equipo2):
+            return equipo2
+        return None  # Empate, no hay ganador
+
+    def registrar_ganador(self, ganador):
+        """Registra el ganador y actualiza la interfaz"""
+        labels = [
+            self.label_10, self.label_11, self.label_12, 
+            self.label_13, self.label_14, self.label_15, self.label_16
+        ]
+
+        if self.partidos_jugados < len(labels):
+            labels[self.partidos_jugados].setText(ganador)
+            self.ganadores.append(ganador)
+            self.partidos_jugados += 1
+            print(f"Ganador registrado: {ganador}")
+        else:
+            print("No se pueden registrar más ganadores. Límite de etiquetas alcanzado.")
 
     def actualizar_historial(self, partidos):
         """Actualiza el historial de partidos en el archivo JSON"""
@@ -157,42 +190,19 @@ class Ventana7(QMainWindow, Ui_MainWindow):
                         h_partido["resultado"] = partido["resultado"]
                         existe = True
                         break
+
                 if not existe:
                     historial.append(partido)
 
             # Guardar el historial actualizado
             with open("datos/historial.json", "w") as archivo:
-                json.dump(historial, archivo, indent=4, ensure_ascii=False)
-                print("Historial actualizado en historial.json")
+                json.dump(historial, archivo, indent=4)
+
+            print("Historial actualizado en datos/historial.json")
         except Exception as e:
             print(f"Error al actualizar el historial: {e}")
 
-
-    def registrar_ganador(self, ganador):
-        """Registra el ganador y actualiza la interfaz"""
-        labels = [
-            self.label_10, self.label_11, self.label_12, 
-            self.label_13, self.label_14, self.label_15, self.label_16
-        ]
-
-        if self.partidos_jugados < len(labels):
-            labels[self.partidos_jugados].setText(ganador)
-            self.ganadores.append(ganador)
-            self.partidos_jugados += 1
-
-            print(f"Ganador registrado: {ganador}")
-        else:
-            print("No se pueden registrar más ganadores. Límite de etiquetas alcanzado.")
-
     def siguiente_pag(self):
-        """Método para avanzar a la ventana 8"""
-        # Cargar los partidos desde el archivo JSON
-        self.torneo.cargar_json("torneo.json")
-        
-        # Pasamos los equipos y partidos a la ventana 8
-        texto = " - ".join(self.ganadores)  # Combina los ganadores en un texto
-        self.ventana8 = Ventana8(self.ventana_principal, texto)
-        self.ventana8.set_equipos(self.nombres_equipos)  # Enviamos los equipos a la ventana 8
+        self.close()
+        self.ventana8 = Ventana8(self.nombres_equipos, self.ventana_principal)
         self.ventana8.show()
-        self.hide()
-
