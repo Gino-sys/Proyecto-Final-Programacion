@@ -1,35 +1,3 @@
 [
-    {
-        "equipo": "Equipo A",
-        "partido": "Equipo A vs Equipo B",
-        "resultado": "2-2"
-        
-    },
-    {
-        "equipo" : "Equipo A",
-        "partido":"Equipo A vs Equipo Argentina",
-        "resultado": "4-3"
-        
 
-        
-            
-    },
-    {
-        "equipo": "Equipo B",
-        "partido": "Equipo A vs Equipo B",
-        "resultado": "1-2"
-       
-    },
-    {
-        "equipo": "Argentina",
-        "partido": "Argentina vs Equipo B",
-        "resultado": "7-2"
-       
-    },
-    {
-        "equipo": "nashe",
-        "partido": "nashe vs Argentina",
-        "resultado": "0-4"
-       
-    }
 ]
