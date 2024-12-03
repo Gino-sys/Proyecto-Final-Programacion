@@ -4,19 +4,25 @@ from interfaces.ui_archivo8 import Ui_MainWindow
 from controladores.ventana9_controller import ventana9
 
 class Ventana8(QMainWindow, Ui_MainWindow):
-    def __init__(self, ventana_principal=None, texto=""):
+    def __init__(self, nombres_equipos, ventana_principal=None, texto=""):
         super().__init__()
         self.setupUi(self)
         self.resize(750, 485)
         self.setFixedSize(self.size())
         self.animar_boton()
 
-        # Este texto es el que recibe de la ventana 7
-        self.label_2.setText(texto)
+        # Variables recibidas
+        self.nombres_equipos = nombres_equipos
+        self.ventana_principal = ventana_principal
 
-        # Referencias
+        # Mostrar el texto recibido en el label_2
+        self.label_2.setText(texto if texto else "Sin información de ganadores")
+
+        # Mostrar nombres de los equipos en los labels correspondientes
+        self.set_equipos(self.nombres_equipos)
+
+        # Referencias para otras ventanas
         self.ventana9 = None
-        self.ventana1 = ventana_principal
 
         # Conexión de botones
         self.pushButton_2.clicked.connect(self.principio)
@@ -24,11 +30,8 @@ class Ventana8(QMainWindow, Ui_MainWindow):
 
     def set_equipos(self, equipos):
         """Establece los equipos para la ventana 8."""
-        self.equipos = equipos
-        print(f"Equipos recibidos en ventana 8: {self.equipos}")
-
         labels = [self.label_3, self.label_4, self.label_5]
-        for i, equipo in enumerate(self.equipos):
+        for i, equipo in enumerate(equipos):
             if i < len(labels):
                 labels[i].setText(equipo)
 
@@ -63,3 +66,4 @@ class Ventana8(QMainWindow, Ui_MainWindow):
         self.animation.setEasingCurve(QEasingCurve.OutBounce)
         self.animation.setLoopCount(-1)
         self.animation.start()
+

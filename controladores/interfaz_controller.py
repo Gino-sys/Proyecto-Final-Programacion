@@ -23,7 +23,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Agregar la instancia serial para la comunicación con Arduino
         try:
-            self.ser = serial.Serial('/dev/ttyACM2', 9600)  # Asegúrate de poner el puerto correcto
+            self.ser = serial.Serial('/dev/ttyACM0', 9600)  # Asegúrate de poner el puerto correcto
             print("Puerto serial abierto con éxito")
         except serial.SerialException as e:
             print(f"Error al abrir el puerto serial: {e}")

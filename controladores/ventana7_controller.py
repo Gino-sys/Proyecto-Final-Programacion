@@ -203,6 +203,15 @@ class Ventana7(QMainWindow, Ui_MainWindow):
             print(f"Error al actualizar el historial: {e}")
 
     def siguiente_pag(self):
-        self.close()
-        self.ventana8 = Ventana8(self.nombres_equipos, self.ventana_principal)
+        """Método para avanzar a la Ventana8 y enviar los datos necesarios."""
+        # Aseguramos que el archivo del torneo está actualizado
+        self.torneo.guardar_json("torneo.json")
+
+        # Creamos un texto combinando los ganadores para mostrar en la siguiente ventana
+        texto_ganadores = ", ".join(self.ganadores) if self.ganadores else "Sin ganadores registrados"
+
+        # Creamos la instancia de Ventana8, pasando nombres de equipos, ventana principal y ganadores
+        self.ventana8 = Ventana8(self.nombres_equipos, self.ventana_principal, texto=texto_ganadores)
         self.ventana8.show()
+        self.close()
+

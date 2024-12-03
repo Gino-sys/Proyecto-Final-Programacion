@@ -1,3 +1,17 @@
 [
-
+    {
+        "equipo1": "a",
+        "equipo2": "b",
+        "resultado": "1-0"
+    },
+    {
+        "equipo1": "c",
+        "equipo2": "d",
+        "resultado": "1-0"
+    },
+    {
+        "equipo1": "e",
+        "equipo2": "f",
+        "resultado": "1-0"
+    }
 ]
