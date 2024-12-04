@@ -71,7 +71,8 @@ void loop() {
 
 // Función para recibir los partidos y sus datos
 void recibirPartidos(String datos) {
-  for (int i = 0; i < 7; i++) {  // Inicializa
+  // Inicializamos los partidos y goles
+  for (int i = 0; i < 7; i++) {  // Inicializa la matriz de partidos
     memset(partidos[i][0], '\0', sizeof(partidos[i][0]));
     memset(partidos[i][1], '\0', sizeof(partidos[i][1]));
     goles[i][0] = 0;
@@ -80,28 +81,45 @@ void recibirPartidos(String datos) {
   partidoActual = 0;
 
   int partidoIndex = 0;
+
+  // Imprimir los datos recibidos para depuración
+  Serial.println("Datos recibidos: " + datos);  // Mostrar los datos para verificar el formato
+
+  // Asegurarse de que los datos terminen con un ';' para facilitar el procesamiento
+  if (!datos.endsWith(";")) {
+    datos += ";";  // Agregar el delimitador final si falta
+  }
+
+  // Procesar los datos
   while (datos.length() > 0 && partidoIndex < 7) {
     int comaIndex = datos.indexOf(',');
     int puntoYComaIndex = datos.indexOf(';');
 
+    // Verificar si se encuentran los delimitadores adecuados
     if (comaIndex != -1 && puntoYComaIndex != -1) {
+      // Extraer los equipos
       String equipo1 = datos.substring(0, comaIndex);
       String equipo2 = datos.substring(comaIndex + 1, puntoYComaIndex);
 
-      // Verificar que no exceda el límite de caracteres
+      // Verificar que los nombres de los equipos no excedan el límite de caracteres
       if (equipo1.length() <= 16 && equipo2.length() <= 16) {
+        // Copiar los nombres de los equipos a la matriz
         equipo1.toCharArray(partidos[partidoIndex][0], 17);
         equipo2.toCharArray(partidos[partidoIndex][1], 17);
         Serial.println("Partido recibido: " + String(partidos[partidoIndex][0]) + " vs " + String(partidos[partidoIndex][1]));
         delay(50);  // Retraso de 50 ms para permitir que los datos se envíen correctamente
       }
-
+  // Eliminar los datos procesados de la cadena
       datos = datos.substring(puntoYComaIndex + 1);
-      partidoIndex++;
+      partidoIndex++;  // Incrementar el índice de partidos
     } else {
+      // Si no se encuentran los delimitadores, imprimir mensaje de error
+      Serial.println("Delimitadores no encontrados o datos mal formateados.");
       break;
     }
   }
+
+  // Mostrar el partido actual para verificar que se haya asignado correctamente
   mostrarPartidoActual();
 }
 
@@ -137,13 +155,13 @@ void avanzarPartido() {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("Semifinales");
-      delay(2000);
+      delay(500);
     } else if (partidoActual == 6) {
       // Cuando llegamos al partido 6, mostramos la final
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("Final");
-      delay(2000);
+      delay(500);
     } else if (partidoActual >= 7) {  // Fin del torneo
       lcd.clear();
       lcd.setCursor(0, 0);

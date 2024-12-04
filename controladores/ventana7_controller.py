@@ -61,20 +61,14 @@ class Ventana7(QMainWindow, Ui_MainWindow):
                 print(f"Actualizando label {i+2} con el nombre: {nombre}")  # Depuración
                 labels[i].setText(nombre)
 
-    def enviar_a_arduino(self):
-        if not self.arduino_ya_actualizado:  # Verificar el flag
-            print("Enviando datos al Arduino:", self.lista)  # Depuración
-            self.arduino.write(str(self.lista).encode())  # Envío al Arduino
-            self.arduino_ya_actualizado = True  # Cambiar el flag
-        else:
-            print("Arduino ya actualizado, evitando envío duplicado.")  # Depuración
-
     def guardar_partidos(self):
         """Guarda los partidos en el archivo JSON"""
-        if len(self.nombres_equipos) >= 4:
+        if len(self.nombres_equipos) >= 8:  # Asegúrate de tener al menos 8 equipos
             nuevos_partidos = [
                 {"equipo1": self.nombres_equipos[0], "equipo2": self.nombres_equipos[1], "resultado": "0-0"},
                 {"equipo1": self.nombres_equipos[2], "equipo2": self.nombres_equipos[3], "resultado": "0-0"},
+                {"equipo1": self.nombres_equipos[4], "equipo2": self.nombres_equipos[5], "resultado": "0-0"},
+                {"equipo1": self.nombres_equipos[6], "equipo2": self.nombres_equipos[7], "resultado": "0-0"}
             ]
 
             # Validar que self.partidos contiene diccionarios, si no, inicializar correctamente
@@ -82,19 +76,17 @@ class Ventana7(QMainWindow, Ui_MainWindow):
                 print("Corrigiendo formato de 'self.partidos', inicializando como lista de diccionarios vacía.")
                 self.partidos = []
 
-            # Evitar duplicados al agregar los nuevos partidos
+            # Evitar duplicados al agregar los nuevos partidos manualmente
             for nuevo_partido in nuevos_partidos:
                 if not any(
-                    isinstance(p, dict) and  # Validar que p sea un diccionario
-                    p.get("equipo1") == nuevo_partido["equipo1"] and 
-                    p.get("equipo2") == nuevo_partido["equipo2"]
+                    p.get("equipo1") == nuevo_partido["equipo1"] and p.get("equipo2") == nuevo_partido["equipo2"]
                     for p in self.partidos
                 ):
                     self.partidos.append(nuevo_partido)
 
             # Guardar partidos en el torneo y en JSON
-            for partido in nuevos_partidos:
-                self.torneo.guardar_partido(partido["equipo1"], partido["equipo2"], partido["resultado"])
+            for nuevo_partido in nuevos_partidos:
+                self.torneo.guardar_partido(nuevo_partido["equipo1"], nuevo_partido["equipo2"], nuevo_partido["resultado"])
 
             self.torneo.guardar_json("torneo.json")
             print("Partidos guardados en torneo.json")
