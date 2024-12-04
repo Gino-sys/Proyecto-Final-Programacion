@@ -15,8 +15,7 @@ class Ventana8(QMainWindow, Ui_MainWindow):
         self.nombres_equipos = nombres_equipos
         self.ventana_principal = ventana_principal
 
-        # Mostrar el texto recibido en el label_2
-        self.label_2.setText(texto if texto else "Sin información de ganadores")
+       
 
         # Mostrar nombres de los equipos en los labels correspondientes
         self.set_equipos(self.nombres_equipos)

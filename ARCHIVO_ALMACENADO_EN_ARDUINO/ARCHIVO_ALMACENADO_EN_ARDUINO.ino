@@ -93,6 +93,7 @@ void recibirPartidos(String datos) {
         equipo1.toCharArray(partidos[partidoIndex][0], 17);
         equipo2.toCharArray(partidos[partidoIndex][1], 17);
         Serial.println("Partido recibido: " + String(partidos[partidoIndex][0]) + " vs " + String(partidos[partidoIndex][1]));
+        delay(50);  // Retraso de 50 ms para permitir que los datos se envíen correctamente
       }
 
       datos = datos.substring(puntoYComaIndex + 1);
@@ -104,21 +105,19 @@ void recibirPartidos(String datos) {
   mostrarPartidoActual();
 }
 
-// Función para mostrar el partido actual en el LCD
+// Función para mostrar el partido actual en el LCD con el formato solicitado
 void mostrarPartidoActual() {
-  if (partidoActual < 7) {  // Solo hasta 7 partidos
+  if (partidoActual <= 8) {  // Solo hasta 7 partidos
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("Partido: ");
-    lcd.print(partidos[partidoActual][0]);
-    lcd.print(" vs ");
-    lcd.print(partidos[partidoActual][1]);
+    lcd.print(partidos[partidoActual][0]); // Mostrar nombre equipo 1
+    lcd.print(": ");
+    lcd.print(goles[partidoActual][0]);   // Mostrar goles equipo 1
 
     lcd.setCursor(0, 1);
-    lcd.print("G1: ");
-    lcd.print(goles[partidoActual][0]);
-    lcd.print(" G2: ");
-    lcd.print(goles[partidoActual][1]);
+    lcd.print(partidos[partidoActual][1]); // Mostrar nombre equipo 2
+    lcd.print(": ");
+    lcd.print(goles[partidoActual][1]);   // Mostrar goles equipo 2
   } else {
     lcd.clear();
     lcd.setCursor(0, 0);

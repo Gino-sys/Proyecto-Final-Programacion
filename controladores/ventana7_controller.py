@@ -15,6 +15,7 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         self.ganadores = []  # Lista para almacenar ganadores
         self.partidos_jugados = 0  # Contador de partidos jugados
         self.ser = self.ventana_principal.ser
+        self.lista_ya_enviada = False  # Inicializar el flag
 
         # Si no se pasan partidos, por defecto está vacío
         self.partidos = partidos if partidos is not None else []
@@ -36,6 +37,15 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         self.timer.timeout.connect(self.listen_for_data)
         self.timer.start(100)  # Comprobar cada 100 ms
 
+    def enviar_lista(self):
+        print("Función enviar_lista llamada")
+        if not self.lista_ya_enviada:  # Verificar el flag
+            print("Enviando lista:", self.lista)  # Depuración
+            # Código para enviar la lista
+            self.lista_ya_enviada = True  # Cambiar el flag después de enviar
+        else:
+            print("Intento de envío duplicado bloqueado.")
+
     def mostrar_equipos(self):
         """Muestra los nombres de los equipos en los labels 2 al 9"""
         labels = [
@@ -50,6 +60,14 @@ class Ventana7(QMainWindow, Ui_MainWindow):
             if i < len(labels):
                 print(f"Actualizando label {i+2} con el nombre: {nombre}")  # Depuración
                 labels[i].setText(nombre)
+
+    def enviar_a_arduino(self):
+        if not self.arduino_ya_actualizado:  # Verificar el flag
+            print("Enviando datos al Arduino:", self.lista)  # Depuración
+            self.arduino.write(str(self.lista).encode())  # Envío al Arduino
+            self.arduino_ya_actualizado = True  # Cambiar el flag
+        else:
+            print("Arduino ya actualizado, evitando envío duplicado.")  # Depuración
 
     def guardar_partidos(self):
         """Guarda los partidos en el archivo JSON"""
@@ -214,4 +232,3 @@ class Ventana7(QMainWindow, Ui_MainWindow):
         self.ventana8 = Ventana8(self.nombres_equipos, self.ventana_principal, texto=texto_ganadores)
         self.ventana8.show()
         self.close()
-
